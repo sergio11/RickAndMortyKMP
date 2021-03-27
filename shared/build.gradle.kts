@@ -48,6 +48,7 @@ kotlin {
         implementation(Deps.SqlDelight.coroutinesExtensions)
         implementation(Deps.Ktor.commonCore)
         implementation(Deps.Ktor.commonJson)
+        implementation(Deps.Ktor.commonEngine)
         implementation(Deps.Ktor.commonLogging)
         implementation(Deps.Coroutines.common) {
             version {
@@ -81,7 +82,7 @@ kotlin {
         implementation(kotlin("stdlib", Versions.kotlin))
         implementation(Deps.SqlDelight.driverAndroid)
         implementation(Deps.Coroutines.android)
-        implementation(Deps.Ktor.androidCore)
+        implementation(Deps.Ktor.android)
     }
 
     sourceSets["androidTest"].dependencies {

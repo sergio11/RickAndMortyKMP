@@ -1,4 +1,4 @@
-package sanchez.sergio.kmp_test.android
+package sanchez.sergio.kmp_test
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
