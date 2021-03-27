@@ -1,4 +1,4 @@
-package sanchez.sergio.kmp_test
+package sanchez.sergio.kmp_test.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

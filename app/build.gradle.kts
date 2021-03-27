@@ -36,6 +36,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -55,10 +56,6 @@ dependencies {
     implementation(Deps.multiplatformSettings)
     implementation(Deps.koinCore)
     implementation(Deps.AndroidX.lifecycle_runtime)
-    implementation(Deps.AndroidX.lifecycle_viewmodel)
-    implementation(Deps.AndroidX.lifecycle_viewmodel_extensions)
-    implementation(Deps.AndroidX.lifecycle_livedata)
-    implementation(Deps.AndroidX.lifecycle_extension)
-    implementation(Deps.AndroidX.koin_viewmodel)
+    implementation(Deps.Moko.commonMvvm)
     testImplementation(Deps.junit)
 }

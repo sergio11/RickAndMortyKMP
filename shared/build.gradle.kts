@@ -60,6 +60,7 @@ kotlin {
         implementation(Deps.koinCore)
         implementation(Deps.Ktor.commonSerialization)
         implementation(Deps.kotlinxDateTime)
+        implementation(Deps.Moko.commonMvvm)
         api(Deps.kermit)
     }
 

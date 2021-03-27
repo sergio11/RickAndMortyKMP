@@ -1,4 +1,4 @@
-package sanchez.sergio.kmp_test.di.modules
+package sanchez.sergio.kmp_test.di.modules.core
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO

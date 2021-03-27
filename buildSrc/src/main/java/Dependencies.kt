@@ -8,7 +8,7 @@ object Versions {
 
     val buildToolsVersion = "30.0.3"
     val cocoapodsext = "0.12"
-    val coroutines = "1.4.2-native-mt"
+    val coroutines = "1.4.2"
     val kermit = "0.1.8"
     val karmok = "0.1.8"
     val koin = "3.0.0-alpha-4"
@@ -24,6 +24,8 @@ object Versions {
     val serialization = "1.0.1"
     val kotlinxDateTime = "0.1.1"
     val turbine = "0.3.0"
+
+    val mokoMvvmVersion = "0.9.1"
 
     object AndroidX {
         val appcompat = "1.2.0"
@@ -53,6 +55,7 @@ object Deps {
     val stately = "co.touchlab:stately-common:${Versions.stately}"
     val kotlinxDateTime = "org.jetbrains.kotlinx:kotlinx-datetime:${Versions.kotlinxDateTime}"
     val turbine = "app.cash.turbine:turbine:${Versions.turbine}"
+
 
     object AndroidX {
         val appcompat = "androidx.appcompat:appcompat:${Versions.AndroidX.appcompat}"
@@ -106,5 +109,9 @@ object Deps {
         val commonLogging = "io.ktor:ktor-client-logging:${Versions.ktor}"
         val ios = "io.ktor:ktor-client-ios:${Versions.ktor}"
         val commonSerialization = "io.ktor:ktor-client-serialization:${Versions.ktor}"
+    }
+
+    object Moko {
+        val commonMvvm = "dev.icerock.moko:mvvm:${Versions.mokoMvvmVersion}"
     }
 }
