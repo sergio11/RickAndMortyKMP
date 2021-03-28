@@ -16,10 +16,16 @@ class GetCharactersInteract (
      * @param onError
      */
     suspend fun execute(
+        params: Params,
         onSuccess: (charactersList: List<Character>) -> Unit,
         onError: (ex: Exception) -> Unit) = try {
-        onSuccess(emptyList())
+        onSuccess(characterRepository.findAllPaged(params.page))
     } catch (ex: Exception) {
         onError(ex)
     }
+
+    data class Params(
+        val page: Int
+    )
+
 }

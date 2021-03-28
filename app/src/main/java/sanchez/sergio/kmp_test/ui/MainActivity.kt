@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.NavigationUI
 import org.koin.core.KoinComponent
+
 import sanchez.sergio.kmp_test.R
 import sanchez.sergio.kmp_test.core.extension.navController
 import sanchez.sergio.kmp_test.databinding.ActivityMainBinding

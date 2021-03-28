@@ -4,6 +4,8 @@ import org.koin.core.KoinApplication
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
 import sanchez.sergio.kmp_test.di.modules.characters.charactersModule
+import sanchez.sergio.kmp_test.di.modules.core.networkModule
+import sanchez.sergio.kmp_test.di.modules.core.utilsModule
 
 /**
  * Init Koin
@@ -12,6 +14,8 @@ import sanchez.sergio.kmp_test.di.modules.characters.charactersModule
 fun initKoin(appModule: Module): KoinApplication =
     startKoin {
         modules(
+            utilsModule,
+            networkModule,
             charactersModule,
             appModule,
         )

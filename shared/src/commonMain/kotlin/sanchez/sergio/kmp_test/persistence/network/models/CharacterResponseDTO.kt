@@ -3,7 +3,7 @@ package sanchez.sergio.kmp_test.persistence.network.models
 import kotlinx.serialization.*
 
 @Serializable
-data class CharactersResponse (
+data class CharactersResponseDTO (
     val info: Info,
     val results: List<CharacterDTO>
 )
