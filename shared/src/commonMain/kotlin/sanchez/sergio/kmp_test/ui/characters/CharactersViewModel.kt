@@ -24,12 +24,10 @@ class CharactersViewModel: ViewModel(), KoinComponent {
     }
 
     val state: LiveData<CharactersState> = _state
-    
+
     fun load() = viewModelScope.launch {
 
     }
-
-
 
 }
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home_navigation_graph"
+    app:startDestination="@id/charactersListFragment">
+
+    <fragment
+        android:id="@+id/charactersListFragment"
+        android:name="sanchez.sergio.kmp_test.ui.characters.CharacterListFragment"
+        android:label="CharacterListFragment" />
+
+    <fragment
+        android:id="@+id/locationsListFragment"
+        android:name="sanchez.sergio.kmp_test.ui.locations.LocationListFragment"
+        android:label="LocationListFragment" />
+
+    <fragment
+        android:id="@+id/episodesListFragment"
+        android:name="sanchez.sergio.kmp_test.ui.episodes.EpisodesListFragment"
+        android:label="EpisodesListFragment" />
+
+</navigation>

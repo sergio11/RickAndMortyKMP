@@ -45,6 +45,8 @@ dependencies {
     implementation(Deps.AndroidX.recyclerView)
     implementation(Deps.AndroidX.swipeRefresh)
     implementation(Deps.material)
+    implementation("androidx.navigation:navigation-fragment-ktx:2.3.4")
+    implementation("androidx.navigation:navigation-ui-ktx:2.3.4")
     coreLibraryDesugaring(Deps.desugarJdkLibs)
     implementation(Deps.AndroidX.appcompat)
     implementation(Deps.AndroidX.core_ktx)
