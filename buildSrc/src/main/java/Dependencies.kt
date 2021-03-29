@@ -8,7 +8,7 @@ object Versions {
 
     val buildToolsVersion = "30.0.3"
     val cocoapodsext = "0.12"
-    val coroutines = "1.4.2"
+    val coroutines = "1.4.2-native-mt"
     val kermit = "0.1.8"
     val karmok = "0.1.8"
     val koin = "3.0.0-alpha-4"

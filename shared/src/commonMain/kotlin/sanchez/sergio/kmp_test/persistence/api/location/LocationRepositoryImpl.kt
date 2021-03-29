@@ -5,6 +5,7 @@ import sanchez.sergio.kmp_test.persistence.api.RepoErrorException
 import sanchez.sergio.kmp_test.persistence.api.RepoNoResultException
 import sanchez.sergio.kmp_test.persistence.network.exception.NetworkNoResultException
 import sanchez.sergio.kmp_test.persistence.network.repository.location.ILocationNetworkRepository
+import kotlin.coroutines.cancellation.CancellationException
 
 /**
  * Location Repository
@@ -17,7 +18,7 @@ class LocationRepositoryImpl(
      * Find Paginated List
      * @param page
      */
-    @Throws(RepoErrorException::class, RepoNoResultException::class)
+    @Throws(RepoErrorException::class, RepoNoResultException::class, CancellationException::class)
     override suspend fun findPaginatedList(page: Int): List<Location> = try {
         locationNetworkRepository.findPaginatedList(page)
     } catch (ex: NetworkNoResultException) {
@@ -30,7 +31,7 @@ class LocationRepositoryImpl(
      * Find By Id
      * @param id
      */
-    @Throws(RepoErrorException::class, RepoNoResultException::class)
+    @Throws(RepoErrorException::class, RepoNoResultException::class, CancellationException::class)
     override suspend fun findById(id: Int): Location  = try {
         locationNetworkRepository.findById(id)
     } catch (ex: NetworkNoResultException) {

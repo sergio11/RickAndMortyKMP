@@ -5,6 +5,7 @@ import sanchez.sergio.kmp_test.persistence.api.RepoErrorException
 import sanchez.sergio.kmp_test.persistence.api.RepoNoResultException
 import sanchez.sergio.kmp_test.persistence.network.exception.NetworkNoResultException
 import sanchez.sergio.kmp_test.persistence.network.repository.character.ICharacterNetworkRepository
+import kotlin.coroutines.cancellation.CancellationException
 
 /**
  * Character Repository Impl
@@ -17,7 +18,7 @@ class CharacterRepositoryImpl(
      * Find All Paged
      * @param page
      */
-    @Throws(RepoErrorException::class, RepoNoResultException::class)
+    @Throws(RepoErrorException::class, RepoNoResultException::class, CancellationException::class)
     override suspend fun findPaginatedList(page: Int): List<Character> = try {
         characterNetworkRepository.findPaginatedList(page)
     } catch (ex: NetworkNoResultException) {
@@ -30,7 +31,7 @@ class CharacterRepositoryImpl(
      * Find By Id
      * @param id
      */
-    @Throws(RepoErrorException::class, RepoNoResultException::class)
+    @Throws(RepoErrorException::class, RepoNoResultException::class, CancellationException::class)
     override suspend fun findById(id: Int): Character = try {
         characterNetworkRepository.findById(id)
     } catch (ex: NetworkNoResultException) {

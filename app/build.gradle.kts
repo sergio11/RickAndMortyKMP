@@ -53,7 +53,11 @@ dependencies {
     implementation(Deps.AndroidX.constraintlayout)
     implementation(Deps.SqlDelight.runtimeJdk)
     implementation(Deps.SqlDelight.driverAndroid)
-    implementation(Deps.Coroutines.common)
+    implementation(Deps.Coroutines.common) {
+        version {
+            strictly(Versions.coroutines)
+        }
+    }
     implementation(Deps.Coroutines.android)
     implementation(Deps.multiplatformSettings)
     implementation(Deps.koinCore)

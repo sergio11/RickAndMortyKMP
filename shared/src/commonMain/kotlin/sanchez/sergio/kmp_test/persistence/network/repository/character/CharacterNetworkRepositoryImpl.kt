@@ -10,6 +10,7 @@ import sanchez.sergio.kmp_test.persistence.network.mapper.character.CharacterNet
 import sanchez.sergio.kmp_test.persistence.network.models.CharacterDTO
 import sanchez.sergio.kmp_test.persistence.network.models.CharactersResponseDTO
 import sanchez.sergio.kmp_test.persistence.network.repository.core.SupportNetworkRepository
+import kotlin.coroutines.cancellation.CancellationException
 
 /**
  * Character Repository Impl
@@ -27,7 +28,7 @@ open class CharacterNetworkRepositoryImpl(
      * Find all paged
      * @param page
      */
-    @Throws(NetworkException::class)
+    @Throws(NetworkException::class, CancellationException::class)
     override suspend fun findPaginatedList(page: Int): List<Character> = safeNetworkCall {
 
         val dataResult = httpClient.get<CharactersResponseDTO>("$baseUrl/character") {
@@ -45,7 +46,7 @@ open class CharacterNetworkRepositoryImpl(
      * Find By Id
      * @param id
      */
-    @Throws(NetworkException::class)
+    @Throws(NetworkException::class, CancellationException::class)
     override suspend fun findById(id: Int): Character = safeNetworkCall {
         val characterDTO = httpClient.get<CharacterDTO>("$baseUrl/character/$id")
         characterNetworkMapper.dtoToModel(characterDTO)
