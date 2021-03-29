@@ -13,12 +13,9 @@ class BreedsViewController: UIViewController {
 
     @IBOutlet weak var breedTableView: UITableView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    
 }
 
 
