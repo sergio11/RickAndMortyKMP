@@ -8,6 +8,7 @@ import sanchez.sergio.kmp_test.di.modules.core.networkModule
 import sanchez.sergio.kmp_test.di.modules.core.utilsModule
 import sanchez.sergio.kmp_test.di.modules.episodes.episodesModule
 import sanchez.sergio.kmp_test.di.modules.locations.locationsModule
+import sanchez.sergio.kmp_test.di.modules.platformModule
 
 /**
  * Init Koin
@@ -21,6 +22,7 @@ fun initKoin(appModule: Module): KoinApplication =
             *charactersModule,
             *episodesModule,
             *locationsModule,
+            platformModule,
             appModule,
         )
     }

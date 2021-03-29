@@ -3,6 +3,7 @@ package sanchez.sergio.kmp_test
 import android.app.Application
 import android.content.Context
 import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.parameter.parametersOf
 import org.koin.dsl.module
 import sanchez.sergio.kmp_test.di.initKoin
 import sanchez.sergio.kmp_test.ui.characters.CharacterDetailViewModel
@@ -22,7 +23,7 @@ class App: Application() {
     private fun onConfigureDI() {
         initKoin(module {
             single<Context> { this@App }
-            viewModel { CharactersViewModel(get()) }
+            viewModel { CharactersViewModel(get(), get { parametersOf("CharactersViewModel") }) }
             viewModel { CharacterDetailViewModel(get()) }
             viewModel { EpisodesViewModel(get()) }
             viewModel { EpisodeDetailViewModel(get()) }

@@ -1,5 +1,6 @@
 package sanchez.sergio.kmp_test.ui.characters
 
+import co.touchlab.kermit.Kermit
 import dev.icerock.moko.mvvm.livedata.LiveData
 import dev.icerock.moko.mvvm.livedata.MutableLiveData
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
@@ -12,7 +13,8 @@ import sanchez.sergio.kmp_test.domain.models.Character
  * Characters View Model
  */
 class CharactersViewModel(
-    private val getCharactersInteract: GetCharactersInteract
+    private val getCharactersInteract: GetCharactersInteract,
+    private val kermit: Kermit
 ): ViewModel() {
 
     /**
@@ -29,13 +31,16 @@ class CharactersViewModel(
      */
 
     fun load() = viewModelScope.launch {
+        kermit.d { "load CALLED" }
         _state.postValue(CharactersState.OnLoading)
         getCharactersInteract.execute(
             params = GetCharactersInteract.Params(page = 1),
             onSuccess = fun(characterList) {
+                kermit.d { "onSuccess SIZE ${characterList.size} CALLED" }
                 _state.postValue(CharactersState.OnSuccess(characterList))
             },
             onError = fun(ex) {
+                kermit.d { "onError CALLED" }
                 _state.postValue(CharactersState.OnError(ex))
             }
         )
