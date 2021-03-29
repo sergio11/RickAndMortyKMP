@@ -7,7 +7,7 @@ import sanchez.sergio.kmp_test.domain.interact.GetCharactersInteract
 import sanchez.sergio.kmp_test.persistence.api.character.CharacterRepositoryImpl
 import sanchez.sergio.kmp_test.persistence.api.character.ICharacterRepository
 import sanchez.sergio.kmp_test.persistence.network.mapper.character.CharacterNetworkMapper
-import sanchez.sergio.kmp_test.persistence.network.mapper.character.LocationNetworkMapper
+import sanchez.sergio.kmp_test.persistence.network.mapper.character.SimpleLocationNetworkMapper
 import sanchez.sergio.kmp_test.persistence.network.repository.character.CharacterNetworkRepositoryImpl
 import sanchez.sergio.kmp_test.persistence.network.repository.character.ICharacterNetworkRepository
 
@@ -15,7 +15,7 @@ import sanchez.sergio.kmp_test.persistence.network.repository.character.ICharact
  * Character Network Module
  */
 internal val charactersNetworkModule = module {
-    single { LocationNetworkMapper() }
+    single { SimpleLocationNetworkMapper() }
     single { CharacterNetworkMapper(get())  }
     single<ICharacterNetworkRepository> {
         CharacterNetworkRepositoryImpl(get(), get(named("baseUrl")), get())

@@ -17,9 +17,9 @@ data class CharacterDTO (
     @SerialName("gender")
     val gender: String,
     @SerialName("origin")
-    val origin: LocationDTO,
+    val origin: SimpleLocationDTO,
     @SerialName("location")
-    val location: LocationDTO,
+    val simpleLocation: SimpleLocationDTO,
     @SerialName("image")
     val image: String,
     @SerialName("episode")
@@ -31,7 +31,7 @@ data class CharacterDTO (
 )
 
 @Serializable
-data class LocationDTO (
+data class SimpleLocationDTO (
     @SerialName("name")
     val name: String,
     @SerialName("url")

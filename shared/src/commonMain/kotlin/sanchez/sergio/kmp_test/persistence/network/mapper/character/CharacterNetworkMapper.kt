@@ -1,6 +1,7 @@
 package sanchez.sergio.kmp_test.persistence.network.mapper.character
 
 import sanchez.sergio.kmp_test.domain.models.Character
+import sanchez.sergio.kmp_test.domain.models.CharacterGenderEnum
 import sanchez.sergio.kmp_test.domain.models.CharacterStatusEnum
 import sanchez.sergio.kmp_test.persistence.network.models.CharacterDTO
 
@@ -8,7 +9,7 @@ import sanchez.sergio.kmp_test.persistence.network.models.CharacterDTO
  * Character Network Mapper
  */
 class CharacterNetworkMapper(
-    private val locationNetworkMapper: LocationNetworkMapper
+    private val simpleLocationNetworkMapper: SimpleLocationNetworkMapper
 ) {
 
     /**
@@ -22,9 +23,9 @@ class CharacterNetworkMapper(
             status = CharacterStatusEnum.valueOf(dto.status),
             species = dto.species,
             type = dto.type,
-            gender = dto.gender,
-            origin = locationNetworkMapper.dtoToModel(dto.origin),
-            location = locationNetworkMapper.dtoToModel(dto.location),
+            gender = CharacterGenderEnum.valueOf(dto.gender),
+            origin = simpleLocationNetworkMapper.dtoToModel(dto.origin),
+            simpleLocation = simpleLocationNetworkMapper.dtoToModel(dto.simpleLocation),
             image = dto.image,
             episode = dto.episode,
             url = dto.url,
@@ -49,9 +50,9 @@ class CharacterNetworkMapper(
             status = model.status.name,
             species = model.species,
             type = model.type,
-            gender = model.gender,
-            origin = locationNetworkMapper.modelToDto(model.origin),
-            location = locationNetworkMapper.modelToDto(model.location),
+            gender = model.gender.name,
+            origin = simpleLocationNetworkMapper.modelToDto(model.origin),
+            simpleLocation = simpleLocationNetworkMapper.modelToDto(model.simpleLocation),
             image = model.image,
             episode = model.episode,
             url = model.url,

@@ -9,6 +9,7 @@ import sanchez.sergio.kmp_test.ui.characters.CharacterDetailViewModel
 import sanchez.sergio.kmp_test.ui.characters.CharactersViewModel
 import sanchez.sergio.kmp_test.ui.episodes.EpisodeDetailViewModel
 import sanchez.sergio.kmp_test.ui.episodes.EpisodesViewModel
+import sanchez.sergio.kmp_test.ui.locations.LocationDetailViewModel
 import sanchez.sergio.kmp_test.ui.locations.LocationsViewModel
 
 class App: Application() {
@@ -25,7 +26,8 @@ class App: Application() {
             viewModel { CharacterDetailViewModel(get()) }
             viewModel { EpisodesViewModel(get()) }
             viewModel { EpisodeDetailViewModel(get()) }
-            viewModel { LocationsViewModel() }
+            viewModel { LocationsViewModel(get()) }
+            viewModel { LocationDetailViewModel(get()) }
         })
     }
 
