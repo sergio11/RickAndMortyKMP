@@ -7,6 +7,7 @@ import org.koin.dsl.module
 import sanchez.sergio.kmp_test.di.initKoin
 import sanchez.sergio.kmp_test.ui.characters.CharacterDetailViewModel
 import sanchez.sergio.kmp_test.ui.characters.CharactersViewModel
+import sanchez.sergio.kmp_test.ui.episodes.EpisodeDetailViewModel
 import sanchez.sergio.kmp_test.ui.episodes.EpisodesViewModel
 import sanchez.sergio.kmp_test.ui.locations.LocationsViewModel
 
@@ -22,9 +23,12 @@ class App: Application() {
             single<Context> { this@App }
             viewModel { CharactersViewModel(get()) }
             viewModel { CharacterDetailViewModel(get()) }
-            viewModel { EpisodesViewModel() }
+            viewModel { EpisodesViewModel(get()) }
+            viewModel { EpisodeDetailViewModel(get()) }
             viewModel { LocationsViewModel() }
         })
     }
 
 }
+
+

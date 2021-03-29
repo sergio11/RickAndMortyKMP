@@ -6,7 +6,7 @@ import io.ktor.client.request.parameter
 import sanchez.sergio.kmp_test.domain.models.Character
 import sanchez.sergio.kmp_test.persistence.network.exception.NetworkException
 import sanchez.sergio.kmp_test.persistence.network.exception.NetworkNoResultException
-import sanchez.sergio.kmp_test.persistence.network.mapper.CharacterNetworkMapper
+import sanchez.sergio.kmp_test.persistence.network.mapper.character.CharacterNetworkMapper
 import sanchez.sergio.kmp_test.persistence.network.models.CharacterDTO
 import sanchez.sergio.kmp_test.persistence.network.models.CharactersResponseDTO
 import sanchez.sergio.kmp_test.persistence.network.repository.core.SupportNetworkRepository

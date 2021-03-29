@@ -6,6 +6,7 @@ import org.koin.core.module.Module
 import sanchez.sergio.kmp_test.di.modules.characters.charactersModule
 import sanchez.sergio.kmp_test.di.modules.core.networkModule
 import sanchez.sergio.kmp_test.di.modules.core.utilsModule
+import sanchez.sergio.kmp_test.di.modules.episodes.episodesModule
 
 /**
  * Init Koin
@@ -17,6 +18,7 @@ fun initKoin(appModule: Module): KoinApplication =
             utilsModule,
             networkModule,
             *charactersModule,
+            *episodesModule,
             appModule,
         )
     }

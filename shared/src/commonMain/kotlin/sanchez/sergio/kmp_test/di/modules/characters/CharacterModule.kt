@@ -6,8 +6,8 @@ import sanchez.sergio.kmp_test.domain.interact.GetCharacterByIdInteract
 import sanchez.sergio.kmp_test.domain.interact.GetCharactersInteract
 import sanchez.sergio.kmp_test.persistence.api.character.CharacterRepositoryImpl
 import sanchez.sergio.kmp_test.persistence.api.character.ICharacterRepository
-import sanchez.sergio.kmp_test.persistence.network.mapper.CharacterNetworkMapper
-import sanchez.sergio.kmp_test.persistence.network.mapper.LocationNetworkMapper
+import sanchez.sergio.kmp_test.persistence.network.mapper.character.CharacterNetworkMapper
+import sanchez.sergio.kmp_test.persistence.network.mapper.character.LocationNetworkMapper
 import sanchez.sergio.kmp_test.persistence.network.repository.character.CharacterNetworkRepositoryImpl
 import sanchez.sergio.kmp_test.persistence.network.repository.character.ICharacterNetworkRepository
 
