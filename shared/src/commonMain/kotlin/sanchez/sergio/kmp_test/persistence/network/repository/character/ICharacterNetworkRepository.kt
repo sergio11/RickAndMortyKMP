@@ -15,4 +15,11 @@ interface ICharacterNetworkRepository {
     @Throws(NetworkException::class)
     suspend fun findPaginatedList(page: Int): List<Character>
 
+    /**
+     * Find By Id
+     * @param id
+     */
+    @Throws(NetworkException::class)
+    suspend fun findById(id: Int): Character
+
 }

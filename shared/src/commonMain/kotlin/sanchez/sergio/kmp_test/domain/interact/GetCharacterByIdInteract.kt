@@ -4,10 +4,10 @@ import sanchez.sergio.kmp_test.domain.models.Character
 import sanchez.sergio.kmp_test.persistence.api.character.ICharacterRepository
 
 /**
- * Get Characters Interact
+ * Get Character By Id Interact
  * @param characterRepository
  */
-class GetCharactersInteract (
+class GetCharacterByIdInteract (
     private val characterRepository: ICharacterRepository) {
 
     /**
@@ -17,15 +17,15 @@ class GetCharactersInteract (
      */
     suspend fun execute(
         params: Params,
-        onSuccess: (charactersList: List<Character>) -> Unit,
+        onSuccess: (character: Character) -> Unit,
         onError: (ex: Exception) -> Unit) = try {
-        onSuccess(characterRepository.findPaginatedList(params.page))
+        onSuccess(characterRepository.findById(params.id))
     } catch (ex: Exception) {
         onError(ex)
     }
 
     data class Params(
-        val page: Int
+        val id: Int
     )
 
 }

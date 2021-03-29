@@ -49,7 +49,7 @@ internal val networkModule = module {
     }
 
     single(named("baseUrl")) {
-        "https://rickandmortyapi.com/api/"
+        "https://rickandmortyapi.com/api"
     }
 
 

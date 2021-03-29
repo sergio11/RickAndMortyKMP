@@ -58,6 +58,7 @@ dependencies {
     implementation(Deps.multiplatformSettings)
     implementation(Deps.koinCore)
     implementation(Deps.AndroidX.lifecycle_runtime)
+    implementation(Deps.AndroidX.koin_viewmodel)
     implementation(Deps.Moko.commonMvvm)
     testImplementation(Deps.junit)
 }

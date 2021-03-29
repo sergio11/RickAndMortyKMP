@@ -2,6 +2,7 @@ package sanchez.sergio.kmp_test.di.modules.characters
 
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
+import sanchez.sergio.kmp_test.domain.interact.GetCharacterByIdInteract
 import sanchez.sergio.kmp_test.domain.interact.GetCharactersInteract
 import sanchez.sergio.kmp_test.persistence.api.character.CharacterRepositoryImpl
 import sanchez.sergio.kmp_test.persistence.api.character.ICharacterRepository
@@ -25,9 +26,7 @@ internal val charactersNetworkModule = module {
  * Character Repository Module
  */
 internal val characterRepositoryModule = module {
-    single<ICharacterRepository> {
-        CharacterRepositoryImpl(get())
-    }
+    single<ICharacterRepository> { CharacterRepositoryImpl(get()) }
 }
 
 /**
@@ -35,15 +34,14 @@ internal val characterRepositoryModule = module {
  */
 internal val characterDomainModule = module {
     factory { GetCharactersInteract(get()) }
+    factory { GetCharacterByIdInteract(get()) }
 }
 
 /**
  * Characters Module
  */
-internal val charactersModule = module {
-    charactersNetworkModule
-    characterRepositoryModule
+internal val charactersModule = arrayOf(
+    charactersNetworkModule,
+    characterRepositoryModule,
     characterDomainModule
-}
-
-
+)

@@ -10,9 +10,15 @@ import sanchez.sergio.kmp_test.persistence.api.RepoNoResultException
 interface ICharacterRepository {
 
     /**
-     * Find All Paged
+     * Find Paginated List
      * @param page
      */
     @Throws(RepoErrorException::class, RepoNoResultException::class)
-    suspend fun findAllPaged(page: Int): List<Character>
+    suspend fun findPaginatedList(page: Int): List<Character>
+
+    /**
+     * Find By Id
+     */
+    @Throws(RepoErrorException::class, RepoNoResultException::class)
+    suspend fun findById(id: Int): Character
 }

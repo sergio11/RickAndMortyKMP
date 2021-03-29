@@ -16,7 +16,7 @@ fun initKoin(appModule: Module): KoinApplication =
         modules(
             utilsModule,
             networkModule,
-            charactersModule,
+            *charactersModule,
             appModule,
         )
     }

@@ -7,6 +7,7 @@ import sanchez.sergio.kmp_test.domain.models.Character
 import sanchez.sergio.kmp_test.persistence.network.exception.NetworkException
 import sanchez.sergio.kmp_test.persistence.network.exception.NetworkNoResultException
 import sanchez.sergio.kmp_test.persistence.network.mapper.CharacterNetworkMapper
+import sanchez.sergio.kmp_test.persistence.network.models.CharacterDTO
 import sanchez.sergio.kmp_test.persistence.network.models.CharactersResponseDTO
 import sanchez.sergio.kmp_test.persistence.network.repository.core.SupportNetworkRepository
 
@@ -29,7 +30,7 @@ open class CharacterNetworkRepositoryImpl(
     @Throws(NetworkException::class)
     override suspend fun findPaginatedList(page: Int): List<Character> = safeNetworkCall {
 
-        val dataResult = httpClient.get<CharactersResponseDTO>("$baseUrl/pokemon") {
+        val dataResult = httpClient.get<CharactersResponseDTO>("$baseUrl/character") {
             parameter("page", page)
         }.results
 
@@ -38,5 +39,15 @@ open class CharacterNetworkRepositoryImpl(
 
         characterNetworkMapper.dtoToModel(dataResult)
 
+    }
+
+    /**
+     * Find By Id
+     * @param id
+     */
+    @Throws(NetworkException::class)
+    override suspend fun findById(id: Int): Character = safeNetworkCall {
+        val characterDTO = httpClient.get<CharacterDTO>("$baseUrl/character/$id")
+        characterNetworkMapper.dtoToModel(characterDTO)
     }
 }

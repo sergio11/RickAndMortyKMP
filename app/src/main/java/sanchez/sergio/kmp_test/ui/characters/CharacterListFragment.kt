@@ -2,46 +2,45 @@ package sanchez.sergio.kmp_test.ui.characters
 
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
-import androidx.lifecycle.ViewModelProvider
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import dev.icerock.moko.mvvm.MvvmFragment
-import dev.icerock.moko.mvvm.createViewModelFactory
-import org.koin.core.KoinComponent
-import sanchez.sergio.kmp_test.R
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import sanchez.sergio.kmp_test.databinding.CharacterListFragmentBinding
 import sanchez.sergio.kmp_test.domain.models.Character
-import java.lang.Exception
 
 /**
  * Character List Fragment
  */
-class CharacterListFragment: MvvmFragment<CharacterListFragmentBinding, CharactersViewModel>(),  KoinComponent {
+class CharacterListFragment: Fragment() {
 
-    override val layoutId = R.layout.character_list_fragment
-    override val viewModelClass: Class<CharactersViewModel> =
-        CharactersViewModel::class.java
-    override val viewModelVariableId = 1
+    /**
+     * Dependencies
+     */
+    private val characterViewModel: CharactersViewModel by viewModel()
 
-    override fun viewModelFactory(): ViewModelProvider.Factory =
-        createViewModelFactory { CharactersViewModel() }
+    private val binding by lazy { CharacterListFragmentBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         lifecycleScope.launchWhenStarted {
-            viewModel.state.addObserver { state ->
-                when(state) {
+            characterViewModel.state.addObserver {
+                when(it) {
                     is CharactersState.OnLoading -> onLoading()
-                    is CharactersState.OnError -> onError(state.error)
-                    is CharactersState.OnSuccess -> onLoaded(state.characterList)
+                    is CharactersState.OnError -> onError(it.error)
+                    is CharactersState.OnSuccess -> onLoaded(it.characterList)
                 }
             }
         }
     }
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View = binding.root
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.load()
+        characterViewModel.load()
     }
 
     /**
@@ -58,7 +57,7 @@ class CharacterListFragment: MvvmFragment<CharacterListFragmentBinding, Characte
 
     private fun onError(ex: Exception) {
         ex.printStackTrace()
-        Log.d("CHAR", "onError CALLED")
+        Log.d("CHAR", "onError ${ex.message} CALLED")
     }
 
 
