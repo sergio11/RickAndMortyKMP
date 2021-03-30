@@ -4,7 +4,7 @@
     <item
         android:id="@+id/charactersListFragment"
         android:enabled="true"
-        android:icon="@drawable/ic_favorite_24px"
+        android:icon="@drawable/ic_menu_character"
         android:title="@string/menu_characters"
         app:showAsAction="ifRoom" />
     <item

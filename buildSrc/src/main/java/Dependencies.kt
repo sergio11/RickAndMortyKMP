@@ -24,7 +24,7 @@ object Versions {
     val serialization = "1.0.1"
     val kotlinxDateTime = "0.1.1"
     val turbine = "0.3.0"
-
+    val glideVersion = "4.11.0"
     val mokoMvvmVersion = "0.9.1"
 
     object AndroidX {
@@ -113,5 +113,10 @@ object Deps {
 
     object Moko {
         val commonMvvm = "dev.icerock.moko:mvvm:${Versions.mokoMvvmVersion}"
+    }
+
+    object Glide {
+        val glide = "com.github.bumptech.glide:glide:${Versions.glideVersion}"
+        val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glideVersion}"
     }
 }

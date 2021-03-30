@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+        <import type="sanchez.sergio.kmp_test.ui.characters.CharactersState" />
+        <import type="sanchez.sergio.kmp_test.ui.characters.CharactersState.OnLoading" />
+
+        <variable
+            name="uiState"
+            type="CharactersState" />
+
+    </data>
+
+    <ImageView
+        android:layout_width="@dimen/loading_icon_size"
+        android:layout_height="@dimen/loading_icon_size"
+        android:visibility="@{ uiState instanceof OnLoading ? View.VISIBLE : View.GONE}"
+        android:src="@drawable/ic_loading"
+        app:tint="@color/colorAccent"
+        android:layout_gravity="center"
+        tools:ignore="ContentDescription"
+        tools:visibility="gone"/>
+
+</layout>

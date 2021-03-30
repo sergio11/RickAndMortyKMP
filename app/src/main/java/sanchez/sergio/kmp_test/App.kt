@@ -23,6 +23,7 @@ class App: Application() {
     private fun onConfigureDI() {
         initKoin(module {
             single<Context> { this@App }
+            single<AppInfo> { AndroidAppInfo }
             viewModel { CharactersViewModel(get(), get { parametersOf("CharactersViewModel") }) }
             viewModel { CharacterDetailViewModel(get()) }
             viewModel { EpisodesViewModel(get()) }
@@ -32,6 +33,10 @@ class App: Application() {
         })
     }
 
+}
+
+object AndroidAppInfo : AppInfo {
+    override val appId: String = BuildConfig.APPLICATION_ID
 }
 
 

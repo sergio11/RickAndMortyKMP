@@ -5,4 +5,8 @@
     <string name="menu_locations">Locations</string>
     <string name="menu_episodes">Episodes</string>
 
+    <string name="common_error">An error occurred, please try again</string>
+    <string name="character_last_known_location">Last known location:</string>
+    <string name="character_first_seen_in">First seen in:</string>
+
 </resources>

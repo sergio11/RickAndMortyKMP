@@ -21,7 +21,7 @@ class CharactersViewModel(
      * Live Data Definitions
      */
     private val _state: MutableLiveData<CharactersState> by lazy {
-        MutableLiveData(CharactersState.OnLoading)
+        MutableLiveData(CharactersState.OnIdle)
     }
 
     val state: LiveData<CharactersState> = _state
@@ -29,6 +29,8 @@ class CharactersViewModel(
     /**
      * Public API
      */
+
+    fun isLoading() = _state.value is CharactersState.OnLoading
 
     fun load() = viewModelScope.launch {
         kermit.d { "load CALLED" }
@@ -48,6 +50,11 @@ class CharactersViewModel(
 }
 
 sealed class CharactersState {
+
+    /**
+     * On Idle
+     */
+    object OnIdle: CharactersState()
 
     /**
      * On Loading

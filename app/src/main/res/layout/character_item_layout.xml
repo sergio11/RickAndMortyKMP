@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="character"
+            type="sanchez.sergio.kmp_test.domain.models.Character" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/character_card_size"
+        app:cardBackgroundColor="@color/colorPrimary">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/verticalGuidelineStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".4" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/verticalGuidelineEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".43" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/horizontalGuidelineTop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.04" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/horizontalGuidelineBottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.92" />
+
+            <!-- Character Image -->
+            <ImageView
+                android:id="@+id/characterImage"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:bindLoadImage="@{character.image}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/verticalGuidelineStart"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/ic_loading"/>
+
+            <!-- Character Name -->
+            <TextView
+                android:id="@+id/characterNameTextView"
+                style="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textColor="@color/colorAccent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{character.name}"
+                app:layout_constraintVertical_chainStyle="spread_inside"
+                app:layout_constraintStart_toEndOf="@id/verticalGuidelineEnd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/horizontalGuidelineTop"
+                tools:text="Character Name"/>
+
+            <!-- Character State Text View -->
+            <TextView
+                android:id="@+id/characterStateTextView"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/common_padding"
+                app:bindCharacterState="@{character}"
+                android:layout_marginTop="@dimen/common_margin"
+                app:layout_constraintStart_toEndOf="@id/verticalGuidelineEnd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/characterNameTextView"
+                app:layout_constraintBottom_toTopOf="@id/lastKnownLocationLabelTextView"
+                tools:text="Character State"/>
+
+            <!-- Last Known Location Label Text View -->
+            <TextView
+                android:id="@+id/lastKnownLocationLabelTextView"
+                style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/character_last_known_location"
+                android:layout_marginTop="@dimen/common_margin"
+                app:layout_constraintStart_toEndOf="@id/verticalGuidelineEnd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/characterStateTextView"
+                app:layout_constraintBottom_toTopOf="@id/lastKnownLocationTextView"
+                tools:text="Last Known Location:"/>
+
+            <!-- Last Known Location Text View -->
+            <TextView
+                android:id="@+id/lastKnownLocationTextView"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{character.simpleLocation.name}"
+                android:layout_marginTop="@dimen/common_margin"
+                app:layout_constraintStart_toEndOf="@id/verticalGuidelineEnd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lastKnownLocationLabelTextView"
+                app:layout_constraintBottom_toTopOf="@id/specieLabelTextView"
+                tools:text="Last Known Location"/>
+
+            <!-- specie Label Text View -->
+            <TextView
+                android:id="@+id/specieLabelTextView"
+                style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/character_first_seen_in"
+                android:layout_marginTop="@dimen/common_margin"
+                app:layout_constraintStart_toEndOf="@id/verticalGuidelineEnd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lastKnownLocationTextView"
+                app:layout_constraintBottom_toTopOf="@id/specieTextView"
+                tools:text="Specie:"/>
+
+            <!-- Specie Text View -->
+            <TextView
+                android:id="@+id/specieTextView"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{character.species}"
+                android:layout_marginTop="@dimen/common_margin"
+                app:layout_constraintStart_toEndOf="@id/verticalGuidelineEnd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/specieLabelTextView"
+                app:layout_constraintBottom_toTopOf="@id/horizontalGuidelineBottom"
+                tools:text="Specie"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</layout>
+
+

@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -64,5 +65,8 @@ dependencies {
     implementation(Deps.AndroidX.lifecycle_runtime)
     implementation(Deps.AndroidX.koin_viewmodel)
     implementation(Deps.Moko.commonMvvm)
+    implementation(Deps.AndroidX.koin_viewmodel)
+    implementation(Deps.Glide.glide)
+    kapt(Deps.Glide.glideCompiler)
     testImplementation(Deps.junit)
 }
