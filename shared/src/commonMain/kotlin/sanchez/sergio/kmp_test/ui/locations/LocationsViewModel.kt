@@ -6,6 +6,7 @@ import dev.icerock.moko.mvvm.viewmodel.ViewModel
 import kotlinx.coroutines.launch
 import sanchez.sergio.kmp_test.domain.interact.GetLocationsInteract
 import sanchez.sergio.kmp_test.domain.models.Location
+import sanchez.sergio.kmp_test.ui.episodes.EpisodesState
 
 /**
  * Locations View Model
@@ -27,6 +28,8 @@ class LocationsViewModel(
     /**
      * Public API
      */
+
+    fun isLoading() = _state.value is LocationsState.OnLoading
 
     fun load() = viewModelScope.launch {
         _state.postValue(LocationsState.OnLoading)

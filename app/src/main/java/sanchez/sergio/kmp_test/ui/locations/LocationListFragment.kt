@@ -1,7 +1,6 @@
 package sanchez.sergio.kmp_test.ui.locations
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,13 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.KoinComponent
+import sanchez.sergio.kmp_test.core.extension.configure
 import sanchez.sergio.kmp_test.databinding.LocationListFragmentBinding
 import sanchez.sergio.kmp_test.domain.models.Location
 
 /**
  * Location List Fragment
  */
-class LocationListFragment: Fragment(), KoinComponent {
+class LocationListFragment: Fragment(), KoinComponent, LocationListAdapter.OnLocationClickListener {
 
     private val locationsViewModel: LocationsViewModel by viewModel()
     private val binding by lazy { LocationListFragmentBinding.inflate(layoutInflater) }
@@ -23,11 +23,9 @@ class LocationListFragment: Fragment(), KoinComponent {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         lifecycleScope.launchWhenStarted {
-            locationsViewModel.state.addObserver {
-                when(it) {
-                    is LocationsState.OnLoading -> onLoading()
-                    is LocationsState.OnError -> onError(it.error)
-                    is LocationsState.OnSuccess -> onLoaded(it.locationList)
+            locationsViewModel.state.addObserver { state ->
+                with(binding) {
+                    uiState = state
                 }
             }
         }
@@ -37,24 +35,29 @@ class LocationListFragment: Fragment(), KoinComponent {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        with(binding) {
+            recyclerView.apply {
+                configure(isLoading = { true }, onLoadMore = {}, isLast = {true})
+                adapter = onBuildAdapter()
+            }
+            swipeRefreshLayout.configure { locationsViewModel.load() }
+        }
         locationsViewModel.load()
+    }
+
+    override fun onLocationClicked(location: Location) {
+
     }
 
     /**
      * Private Methods
      */
 
-    private fun onLoading() {
-        Log.d("LOC", "onLoading CALLED")
-    }
+    /**
+     * On Build Adapter
+     */
+    private fun onBuildAdapter(): LocationListAdapter =
+        LocationListAdapter(context = requireContext(), data = mutableListOf(), locationItemListener = this)
 
-    private fun onLoaded(locations: List<Location>) {
-        Log.d("LOC", "onLoaded ${locations.size} CALLED")
-    }
-
-    private fun onError(ex: Exception) {
-        ex.printStackTrace()
-        Log.d("LOC", "onError ${ex.message} CALLED")
-    }
 
 }

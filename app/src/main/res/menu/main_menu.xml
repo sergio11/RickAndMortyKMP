@@ -10,7 +10,7 @@
     <item
         android:id="@+id/locationsListFragment"
         android:enabled="true"
-        android:icon="@drawable/ic_favorite_24px"
+        android:icon="@drawable/ic_menu_locations"
         android:title="@string/menu_locations"
         app:showAsAction="ifRoom" />
     <item

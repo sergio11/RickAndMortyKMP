@@ -1,24 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <import type="android.view.View"/>
+        <import type="sanchez.sergio.kmp_test.ui.locations.LocationsState" />
+        <import type="sanchez.sergio.kmp_test.ui.locations.LocationsState.OnLoading" />
+        <import type="sanchez.sergio.kmp_test.ui.locations.LocationsState.OnSuccess" />
+        <import type="sanchez.sergio.kmp_test.ui.locations.LocationsState.OnError" />
+
+        <variable
+            name="uiState"
+            type="LocationsState" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/TextAppearance.MaterialComponents.Headline2"
-            android:text="Locations"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:bindSwipeRefreshState="@{uiState}"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    app:bindAdapterData="@{uiState}"
+                    app:bindVisibilityByState="@{uiState}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:visibility="gone"
+                    />
+
+                <include
+                    app:isVisible="@{uiState instanceof OnLoading}"
+                    layout="@layout/common_loading_layout" />
+
+                <include
+                    app:isVisible="@{uiState instanceof OnError}"
+                    layout="@layout/common_error_occurred_layout" />
+
+            </FrameLayout>
+
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
