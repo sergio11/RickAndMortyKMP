@@ -11,11 +11,17 @@ import shared
 
 class BreedsViewController: UIViewController {
 
-    @IBOutlet weak var breedTableView: UITableView!
+    @IBOutlet weak var charactersTableView: UITableView!
+    
+    private var viewModel: CharactersViewModel!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
+    
+    
 }
 
 

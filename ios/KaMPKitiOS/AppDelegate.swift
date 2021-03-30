@@ -10,6 +10,7 @@ import shared
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    var mainCoordinator: MainCoordinator?
 
     // Lazy so it doesn't try to initialize before startKoin() is called
     lazy var log = koin.get(objCClass: Kermit.self, parameter: "AppDelegate") as! Kermit
@@ -18,13 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         startKoin()
-        // Manually launch storyboard so that ViewController doesn't initialize before Koin
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(identifier: "BreedsViewController")
         
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = viewController
-        self.window?.makeKeyAndVisible()
+        // Launch app
+        let navigationController = UINavigationController()
+        
+        mainCoordinator = MainCoordinator(navigationController: navigationController)
+        mainCoordinator?.start()
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        
         
         log.v(withMessage: {"App Started"})
         

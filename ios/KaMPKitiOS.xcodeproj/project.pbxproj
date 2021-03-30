@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D7346992613A48000FCEC57 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7346982613A48000FCEC57 /* Coordinator.swift */; };
+		3D7346A82613A5EA00FCEC57 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7346A72613A5EA00FCEC57 /* MainCoordinator.swift */; };
+		3D7346D52613B38600FCEC57 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7346D32613B38600FCEC57 /* HomeViewController.swift */; };
+		3D7346D62613B38600FCEC57 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7346D42613B38600FCEC57 /* HomeViewController.xib */; };
 		3DF1DAC62612544D00221E99 /* koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1DAC52612544D00221E99 /* koin.swift */; };
 		3DFF917C64A18A83DA010EE1 /* Pods_KaMPKitiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B859F3FB23133D22AB9DD835 /* Pods_KaMPKitiOS.framework */; };
 		F1465F0123AA94BF0055F7C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1465F0023AA94BF0055F7C3 /* AppDelegate.swift */; };
 		F1465F0523AA94BF0055F7C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1465F0423AA94BF0055F7C3 /* ViewController.swift */; };
-		F1465F0823AA94BF0055F7C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1465F0623AA94BF0055F7C3 /* Main.storyboard */; };
 		F1465F0A23AA94BF0055F7C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1465F0923AA94BF0055F7C3 /* Assets.xcassets */; };
 		F1465F0D23AA94BF0055F7C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1465F0B23AA94BF0055F7C3 /* LaunchScreen.storyboard */; };
 		F1465F1823AA94C00055F7C3 /* KaMPKitiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1465F1723AA94C00055F7C3 /* KaMPKitiOSTests.swift */; };
@@ -38,13 +41,16 @@
 /* Begin PBXFileReference section */
 		1DFCC00C8DAA719770A18D1A /* Pods-KaMPKitiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaMPKitiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-KaMPKitiOS/Pods-KaMPKitiOS.release.xcconfig"; sourceTree = "<group>"; };
 		2A1ED6A4A2A53F5F75C58E5F /* Pods-KaMPKitiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaMPKitiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-KaMPKitiOS/Pods-KaMPKitiOS.release.xcconfig"; sourceTree = "<group>"; };
+		3D7346982613A48000FCEC57 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		3D7346A72613A5EA00FCEC57 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		3D7346D32613B38600FCEC57 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3D7346D42613B38600FCEC57 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		3DF1DAC52612544D00221E99 /* koin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = koin.swift; sourceTree = "<group>"; };
 		B859F3FB23133D22AB9DD835 /* Pods_KaMPKitiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KaMPKitiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1F782AF3705197012D0C33 /* Pods-KaMPKitiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaMPKitiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KaMPKitiOS/Pods-KaMPKitiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F1465EFD23AA94BF0055F7C3 /* KaMPKitiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KaMPKitiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1465F0023AA94BF0055F7C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1465F0423AA94BF0055F7C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F1465F0723AA94BF0055F7C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F1465F0923AA94BF0055F7C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1465F0C23AA94BF0055F7C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1465F0E23AA94BF0055F7C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,12 +89,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3DF1DAC42612543800221E99 /* DI */ = {
+		3D7346962613A45100FCEC57 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3D7346A02613A4E200FCEC57 /* Di */,
+				3D7346972613A47000FCEC57 /* Protocol */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		3D7346972613A47000FCEC57 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				3D7346982613A48000FCEC57 /* Coordinator.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		3D7346A02613A4E200FCEC57 /* Di */ = {
 			isa = PBXGroup;
 			children = (
 				3DF1DAC52612544D00221E99 /* koin.swift */,
 			);
-			path = DI;
+			path = Di;
+			sourceTree = "<group>";
+		};
+		3D7346A12613A4F100FCEC57 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				3D7346AF2613A6BC00FCEC57 /* View */,
+				3D7346A62613A5DD00FCEC57 /* Main */,
+				3D7346A22613A50700FCEC57 /* Storyboards */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		3D7346A22613A50700FCEC57 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F1465F0B23AA94BF0055F7C3 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		3D7346A62613A5DD00FCEC57 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3D7346A72613A5EA00FCEC57 /* MainCoordinator.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		3D7346AF2613A6BC00FCEC57 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D7346B72613A70000FCEC57 /* home */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3D7346B72613A70000FCEC57 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				3D7346D32613B38600FCEC57 /* HomeViewController.swift */,
+				3D7346D42613B38600FCEC57 /* HomeViewController.xib */,
+			);
+			path = home;
 			sourceTree = "<group>";
 		};
 		6278498AD96A4D949D39BF44 /* Frameworks */ = {
@@ -135,12 +201,11 @@
 		F1465EFF23AA94BF0055F7C3 /* KaMPKitiOS */ = {
 			isa = PBXGroup;
 			children = (
-				3DF1DAC42612543800221E99 /* DI */,
+				3D7346A12613A4F100FCEC57 /* Presentation */,
+				3D7346962613A45100FCEC57 /* Common */,
 				F1465F0023AA94BF0055F7C3 /* AppDelegate.swift */,
 				F1465F0423AA94BF0055F7C3 /* ViewController.swift */,
-				F1465F0623AA94BF0055F7C3 /* Main.storyboard */,
 				F1465F0923AA94BF0055F7C3 /* Assets.xcassets */,
-				F1465F0B23AA94BF0055F7C3 /* LaunchScreen.storyboard */,
 				F1465F0E23AA94BF0055F7C3 /* Info.plist */,
 			);
 			path = KaMPKitiOS;
@@ -272,7 +337,7 @@
 			files = (
 				F1465F0D23AA94BF0055F7C3 /* LaunchScreen.storyboard in Resources */,
 				F1465F0A23AA94BF0055F7C3 /* Assets.xcassets in Resources */,
-				F1465F0823AA94BF0055F7C3 /* Main.storyboard in Resources */,
+				3D7346D62613B38600FCEC57 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,9 +404,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D7346992613A48000FCEC57 /* Coordinator.swift in Sources */,
 				3DF1DAC62612544D00221E99 /* koin.swift in Sources */,
 				F1465F0523AA94BF0055F7C3 /* ViewController.swift in Sources */,
+				3D7346A82613A5EA00FCEC57 /* MainCoordinator.swift in Sources */,
 				F1465F0123AA94BF0055F7C3 /* AppDelegate.swift in Sources */,
+				3D7346D52613B38600FCEC57 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,14 +445,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F1465F0623AA94BF0055F7C3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F1465F0723AA94BF0055F7C3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F1465F0B23AA94BF0055F7C3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -524,7 +584,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = PX63F4TNY3;
 				INFOPLIST_FILE = KaMPKitiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -541,7 +601,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.touchlab.kampkit.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -551,7 +611,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = PX63F4TNY3;
 				INFOPLIST_FILE = KaMPKitiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -568,7 +628,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.touchlab.kampkit.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
