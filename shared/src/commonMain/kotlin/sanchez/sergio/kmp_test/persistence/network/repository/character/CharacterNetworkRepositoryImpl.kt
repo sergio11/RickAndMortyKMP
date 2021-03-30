@@ -4,6 +4,7 @@ import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import sanchez.sergio.kmp_test.domain.models.Character
+import sanchez.sergio.kmp_test.domain.models.PageData
 import sanchez.sergio.kmp_test.persistence.network.exception.NetworkException
 import sanchez.sergio.kmp_test.persistence.network.exception.NetworkNoResultException
 import sanchez.sergio.kmp_test.persistence.network.mapper.character.CharacterNetworkMapper
@@ -29,16 +30,22 @@ open class CharacterNetworkRepositoryImpl(
      * @param page
      */
     @Throws(NetworkException::class, CancellationException::class)
-    override suspend fun findPaginatedList(page: Int): List<Character> = safeNetworkCall {
+    override suspend fun findPaginatedList(page: Long): PageData<Character> = safeNetworkCall {
 
-        val dataResult = httpClient.get<CharactersResponseDTO>("$baseUrl/character") {
+        val pageResults = httpClient.get<CharactersResponseDTO>("$baseUrl/character") {
             parameter("page", page)
-        }.results
+        }
 
-        if(dataResult.isEmpty())
+        if(pageResults.results.isEmpty())
             throw NetworkNoResultException("Not Characters found")
 
-        characterNetworkMapper.dtoToModel(dataResult)
+        val data = characterNetworkMapper.dtoToModel(pageResults.results)
+
+        PageData(
+            page = page,
+            data = data,
+            isLast = pageResults.info.next.isNullOrBlank()
+        )
 
     }
 

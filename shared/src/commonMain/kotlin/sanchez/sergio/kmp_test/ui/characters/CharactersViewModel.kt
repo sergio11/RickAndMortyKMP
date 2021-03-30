@@ -7,7 +7,7 @@ import dev.icerock.moko.mvvm.viewmodel.ViewModel
 import kotlinx.coroutines.launch
 import sanchez.sergio.kmp_test.domain.interact.GetCharactersInteract
 import sanchez.sergio.kmp_test.domain.models.Character
-
+import sanchez.sergio.kmp_test.domain.models.PageData
 
 /**
  * Characters View Model
@@ -32,20 +32,52 @@ class CharactersViewModel(
 
     fun isLoading() = _state.value is CharactersState.OnLoading
 
-    fun load() = viewModelScope.launch {
+    /**
+     * is last page
+     */
+    fun isLastPage() = _state.value.let { state ->
+        state is CharactersState.OnSuccess &&
+            state.pageData.isLast
+    }
+
+    /**
+     * Load next page
+     */
+    fun loadNextPage() = viewModelScope.launch {
+
+        val page = _state.value.let { state ->
+            if(state is CharactersState.OnSuccess)
+                state.pageData.page + 1
+            else
+                DEFAULT_PAGE_NUMBER
+        }
+
+        load(page)
+
+    }
+
+    /**
+     * Load
+     * @param page
+     */
+    fun load(page: Long = DEFAULT_PAGE_NUMBER) = viewModelScope.launch {
         kermit.d { "load CALLED" }
         _state.postValue(CharactersState.OnLoading)
         getCharactersInteract.execute(
-            params = GetCharactersInteract.Params(page = 1),
-            onSuccess = fun(characterList) {
-                kermit.d { "onSuccess SIZE ${characterList.size} CALLED" }
-                _state.postValue(CharactersState.OnSuccess(characterList))
+            params = GetCharactersInteract.Params(page),
+            onSuccess = fun(pageData) {
+                kermit.d { "onSuccess SIZE ${pageData.data.size} CALLED" }
+                _state.postValue(CharactersState.OnSuccess(pageData))
             },
             onError = fun(ex) {
                 kermit.d { "onError CALLED" }
                 _state.postValue(CharactersState.OnError(ex))
             }
         )
+    }
+
+    companion object {
+        private const val DEFAULT_PAGE_NUMBER = 1L
     }
 }
 
@@ -63,9 +95,9 @@ sealed class CharactersState {
 
     /**
      * On Success
-     * @param characterList
+     * @param pageData
      */
-    data class OnSuccess(val characterList: List<Character>): CharactersState()
+    data class OnSuccess(val pageData: PageData<Character>): CharactersState()
 
     /**
      * On Error

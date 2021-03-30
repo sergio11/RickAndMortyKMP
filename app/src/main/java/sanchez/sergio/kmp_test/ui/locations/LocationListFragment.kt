@@ -37,7 +37,11 @@ class LocationListFragment: Fragment(), KoinComponent, LocationListAdapter.OnLoc
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
             recyclerView.apply {
-                configure(isLoading = { true }, onLoadMore = {}, isLast = {true})
+                configure(
+                    isLoading = { locationsViewModel.isLoading() },
+                    onLoadMore = { locationsViewModel.loadNextPage() },
+                    isLast = { locationsViewModel.isLastPage() }
+                )
                 adapter = onBuildAdapter()
             }
             swipeRefreshLayout.configure { locationsViewModel.load() }

@@ -1,6 +1,7 @@
 package sanchez.sergio.kmp_test.persistence.network.repository.character
 
 import sanchez.sergio.kmp_test.domain.models.Character
+import sanchez.sergio.kmp_test.domain.models.PageData
 import sanchez.sergio.kmp_test.persistence.network.exception.NetworkException
 import kotlin.coroutines.cancellation.CancellationException
 
@@ -14,7 +15,7 @@ interface ICharacterNetworkRepository {
      * @param page
      */
     @Throws(NetworkException::class, CancellationException::class)
-    suspend fun findPaginatedList(page: Int): List<Character>
+    suspend fun findPaginatedList(page: Long): PageData<Character>
 
     /**
      * Find By Id

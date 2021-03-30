@@ -1,6 +1,7 @@
 package sanchez.sergio.kmp_test.persistence.api.episodes
 
 import sanchez.sergio.kmp_test.domain.models.Episode
+import sanchez.sergio.kmp_test.domain.models.PageData
 import sanchez.sergio.kmp_test.persistence.api.RepoErrorException
 import sanchez.sergio.kmp_test.persistence.api.RepoNoResultException
 import kotlin.coroutines.cancellation.CancellationException
@@ -15,7 +16,7 @@ interface IEpisodeRepository {
      * @param page
      */
     @Throws(RepoErrorException::class, RepoNoResultException::class, CancellationException::class)
-    suspend fun findPaginatedList(page: Int): List<Episode>
+    suspend fun findPaginatedList(page: Long): PageData<Episode>
 
     /**
      * Find By Id

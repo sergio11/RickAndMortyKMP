@@ -44,8 +44,8 @@ class CharacterListFragment: Fragment(), CharacterListAdapter.OnCharacterClickLi
             recyclerView.apply {
                 configure(
                     isLoading = { characterViewModel.isLoading() },
-                    onLoadMore = {},
-                    isLast = {true})
+                    onLoadMore = { characterViewModel.loadNextPage() },
+                    isLast = { characterViewModel.isLastPage() })
                 adapter = onBuildAdapter()
             }
             swipeRefreshLayout.configure { characterViewModel.load() }

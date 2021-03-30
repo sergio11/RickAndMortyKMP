@@ -4,6 +4,7 @@ import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import sanchez.sergio.kmp_test.domain.models.Location
+import sanchez.sergio.kmp_test.domain.models.PageData
 import sanchez.sergio.kmp_test.persistence.network.exception.NetworkNoResultException
 import sanchez.sergio.kmp_test.persistence.network.mapper.character.LocationNetworkMapper
 import sanchez.sergio.kmp_test.persistence.network.models.LocationDTO
@@ -26,13 +27,22 @@ class LocationNetworkRepositoryImpl(
      * Find paginated list
      * @param page
      */
-    override suspend fun findPaginatedList(page: Int): List<Location> = safeNetworkCall {
-        val dataResult = httpClient.get<LocationsResponseDTO>("$baseUrl/location") {
+    override suspend fun findPaginatedList(page: Long): PageData<Location> = safeNetworkCall {
+
+        val pageResults = httpClient.get<LocationsResponseDTO>("$baseUrl/location") {
             parameter("page", page)
-        }.results
-        if(dataResult.isEmpty())
+        }
+
+        if(pageResults.results.isEmpty())
             throw NetworkNoResultException("Not Locations found")
-        locationNetworkMapper.dtoToModel(dataResult)
+
+        val data = locationNetworkMapper.dtoToModel(pageResults.results)
+
+        PageData(
+            page = page,
+            data = data,
+            isLast = pageResults.info.next.isNullOrBlank()
+        )
     }
 
     /**

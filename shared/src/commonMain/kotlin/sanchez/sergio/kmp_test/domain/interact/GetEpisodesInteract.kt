@@ -1,6 +1,7 @@
 package sanchez.sergio.kmp_test.domain.interact
 
 import sanchez.sergio.kmp_test.domain.models.Episode
+import sanchez.sergio.kmp_test.domain.models.PageData
 import sanchez.sergio.kmp_test.persistence.api.episodes.IEpisodeRepository
 
 /**
@@ -17,7 +18,7 @@ class GetEpisodesInteract (
      */
     suspend fun execute(
         params: Params,
-        onSuccess: (episodeList: List<Episode>) -> Unit,
+        onSuccess: (pageData: PageData<Episode>) -> Unit,
         onError: (ex: Exception) -> Unit) = try {
         onSuccess(episodeRepository.findPaginatedList(params.page))
     } catch (ex: Exception) {
@@ -25,7 +26,7 @@ class GetEpisodesInteract (
     }
 
     data class Params(
-        val page: Int
+        val page: Long
     )
 
 }

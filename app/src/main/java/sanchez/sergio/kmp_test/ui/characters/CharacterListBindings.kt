@@ -48,7 +48,7 @@ object CharacterListBindings {
     fun bindAdapterData(view: RecyclerView, state: CharactersState) {
         val adapter = view.adapter
         if(state is CharactersState.OnSuccess &&  adapter is CharacterListAdapter)
-            adapter.addData(state.characterList)
+            adapter.addData(state.pageData.data)
 
     }
 

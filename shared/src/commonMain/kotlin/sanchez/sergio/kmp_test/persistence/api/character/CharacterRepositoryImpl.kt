@@ -1,6 +1,7 @@
 package sanchez.sergio.kmp_test.persistence.api.character
 
 import sanchez.sergio.kmp_test.domain.models.Character
+import sanchez.sergio.kmp_test.domain.models.PageData
 import sanchez.sergio.kmp_test.persistence.api.RepoErrorException
 import sanchez.sergio.kmp_test.persistence.api.RepoNoResultException
 import sanchez.sergio.kmp_test.persistence.network.exception.NetworkNoResultException
@@ -19,7 +20,7 @@ class CharacterRepositoryImpl(
      * @param page
      */
     @Throws(RepoErrorException::class, RepoNoResultException::class, CancellationException::class)
-    override suspend fun findPaginatedList(page: Int): List<Character> = try {
+    override suspend fun findPaginatedList(page: Long): PageData<Character> = try {
         characterNetworkRepository.findPaginatedList(page)
     } catch (ex: NetworkNoResultException) {
         throw RepoNoResultException(ex)

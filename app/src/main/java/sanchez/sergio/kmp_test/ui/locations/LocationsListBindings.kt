@@ -41,7 +41,7 @@ object LocationsListBindings {
     fun bindAdapterData(view: RecyclerView, state: LocationsState) {
         val adapter = view.adapter
         if(state is LocationsState.OnSuccess &&  adapter is LocationListAdapter)
-            adapter.addData(state.locationList)
+            adapter.addData(state.pageData.data)
 
     }
 }

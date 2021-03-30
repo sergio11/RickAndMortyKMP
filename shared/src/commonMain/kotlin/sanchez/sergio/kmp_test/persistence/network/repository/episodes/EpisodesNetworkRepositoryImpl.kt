@@ -4,6 +4,7 @@ import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import sanchez.sergio.kmp_test.domain.models.Episode
+import sanchez.sergio.kmp_test.domain.models.PageData
 import sanchez.sergio.kmp_test.persistence.network.exception.NetworkNoResultException
 import sanchez.sergio.kmp_test.persistence.network.mapper.episodes.EpisodeNetworkMapper
 import sanchez.sergio.kmp_test.persistence.network.models.EpisodeDTO
@@ -26,13 +27,21 @@ class EpisodesNetworkRepositoryImpl(
      * Find Paginated list
      * @param page
      */
-    override suspend fun findPaginatedList(page: Int): List<Episode> = safeNetworkCall {
-        val dataResult = httpClient.get<EpisodesResponseDTO>("$baseUrl/episode") {
+    override suspend fun findPaginatedList(page: Long): PageData<Episode> = safeNetworkCall {
+        val pageResults = httpClient.get<EpisodesResponseDTO>("$baseUrl/episode") {
             parameter("page", page)
-        }.results
-        if(dataResult.isEmpty())
+        }
+
+        if(pageResults.results.isEmpty())
             throw NetworkNoResultException("Not Episodes found")
-        episodesNetworkMapper.dtoToModel(dataResult)
+
+        val data = episodesNetworkMapper.dtoToModel(pageResults.results)
+
+        PageData(
+            page = page,
+            data = data,
+            isLast = pageResults.info.next.isNullOrBlank()
+        )
     }
 
     /**

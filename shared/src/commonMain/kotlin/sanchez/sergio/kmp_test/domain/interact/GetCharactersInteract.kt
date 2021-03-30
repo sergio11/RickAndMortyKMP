@@ -1,6 +1,7 @@
 package sanchez.sergio.kmp_test.domain.interact
 
 import sanchez.sergio.kmp_test.domain.models.Character
+import sanchez.sergio.kmp_test.domain.models.PageData
 import sanchez.sergio.kmp_test.persistence.api.character.ICharacterRepository
 
 /**
@@ -17,7 +18,7 @@ class GetCharactersInteract (
      */
     suspend fun execute(
         params: Params,
-        onSuccess: (charactersList: List<Character>) -> Unit,
+        onSuccess: (pageData: PageData<Character>) -> Unit,
         onError: (ex: Exception) -> Unit) = try {
         onSuccess(characterRepository.findPaginatedList(params.page))
     } catch (ex: Exception) {
@@ -25,7 +26,7 @@ class GetCharactersInteract (
     }
 
     data class Params(
-        val page: Int
+        val page: Long
     )
 
 }

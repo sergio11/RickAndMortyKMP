@@ -39,8 +39,8 @@ class EpisodesListFragment: Fragment(), KoinComponent, EpisodeListAdapter.OnEpis
             recyclerView.apply {
                 configure(
                     isLoading = { episodesViewModel.isLoading() },
-                    onLoadMore = {},
-                    isLast = {true})
+                    onLoadMore = { episodesViewModel.loadNextPage() },
+                    isLast = { episodesViewModel.isLastPage() })
                 adapter = onBuildAdapter()
             }
             swipeRefreshLayout.configure { episodesViewModel.load() }

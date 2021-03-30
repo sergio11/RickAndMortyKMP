@@ -1,6 +1,7 @@
 package sanchez.sergio.kmp_test.domain.interact
 
 import sanchez.sergio.kmp_test.domain.models.Location
+import sanchez.sergio.kmp_test.domain.models.PageData
 import sanchez.sergio.kmp_test.persistence.api.location.ILocationRepository
 
 /**
@@ -17,7 +18,7 @@ class GetLocationsInteract (
      */
     suspend fun execute(
         params: Params,
-        onSuccess: (locationsList: List<Location>) -> Unit,
+        onSuccess: (pageData: PageData<Location>) -> Unit,
         onError: (ex: Exception) -> Unit) = try {
         onSuccess(locationRepository.findPaginatedList(params.page))
     } catch (ex: Exception) {
@@ -25,7 +26,7 @@ class GetLocationsInteract (
     }
 
     data class Params(
-        val page: Int
+        val page: Long
     )
 
 }

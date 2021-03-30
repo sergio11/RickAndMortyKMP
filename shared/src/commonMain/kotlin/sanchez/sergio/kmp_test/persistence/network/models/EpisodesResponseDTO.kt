@@ -5,17 +5,7 @@ import kotlinx.serialization.*
 @Serializable
 data class EpisodesResponseDTO (
     @SerialName("info")
-    val info: Info,
+    val info: PageDataDTO,
     @SerialName("results")
     val results: List<EpisodeDTO>
-)
-
-@Serializable
-data class InfoDTO (
-    @SerialName("count")
-    val count: Long,
-    @SerialName("pages")
-    val pages: Long,
-    @SerialName("next")
-    val next: String
 )

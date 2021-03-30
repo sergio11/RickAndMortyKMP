@@ -41,7 +41,7 @@ object EpisodesListBindings {
     fun bindAdapterData(view: RecyclerView, state: EpisodesState) {
         val adapter = view.adapter
         if(state is EpisodesState.OnSuccess &&  adapter is EpisodeListAdapter)
-            adapter.addData(state.episodeList)
+            adapter.addData(state.pageData.data)
 
     }
 }
