@@ -16,7 +16,7 @@
     <item
         android:id="@+id/episodesListFragment"
         android:enabled="true"
-        android:icon="@drawable/ic_favorite_24px"
+        android:icon="@drawable/ic_menu_episode"
         android:title="@string/menu_episodes"
         app:showAsAction="ifRoom" />
 </menu>

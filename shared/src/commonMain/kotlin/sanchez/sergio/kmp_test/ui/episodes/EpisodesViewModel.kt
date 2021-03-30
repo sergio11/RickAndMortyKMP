@@ -19,7 +19,7 @@ class EpisodesViewModel(
      * Live Data Definitions
      */
     private val _state: MutableLiveData<EpisodesState> by lazy {
-        MutableLiveData(EpisodesState.OnLoading)
+        MutableLiveData(EpisodesState.OnIdle)
     }
 
     val state: LiveData<EpisodesState> = _state
@@ -28,12 +28,14 @@ class EpisodesViewModel(
      * Public API
      */
 
+    fun isLoading() = _state.value is EpisodesState.OnLoading
+
     fun load() = viewModelScope.launch {
         _state.postValue(EpisodesState.OnLoading)
         getEpisodesInteract.execute(
             params = GetEpisodesInteract.Params(page = 1),
-            onSuccess = fun(character) {
-                _state.postValue(EpisodesState.OnSuccess(character))
+            onSuccess = fun(episodes) {
+                _state.postValue(EpisodesState.OnSuccess(episodes))
             },
             onError = fun(ex) {
                 _state.postValue(EpisodesState.OnError(ex))
@@ -46,6 +48,11 @@ class EpisodesViewModel(
 
 
 sealed class EpisodesState {
+
+    /**
+     * On Idle
+     */
+    object OnIdle: EpisodesState()
 
     /**
      * On Loading

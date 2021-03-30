@@ -6,19 +6,15 @@
     <data>
 
         <import type="android.view.View"/>
-        <import type="sanchez.sergio.kmp_test.ui.characters.CharactersState" />
-        <import type="sanchez.sergio.kmp_test.ui.characters.CharactersState.OnLoading" />
 
-        <variable
-            name="uiState"
-            type="CharactersState" />
+        <variable name="isVisible" type="Boolean" />
 
     </data>
 
     <ImageView
         android:layout_width="@dimen/loading_icon_size"
         android:layout_height="@dimen/loading_icon_size"
-        android:visibility="@{ uiState instanceof OnLoading ? View.VISIBLE : View.GONE}"
+        android:visibility="@{ isVisible ? View.VISIBLE : View.GONE }"
         android:src="@drawable/ic_loading"
         app:tint="@color/colorAccent"
         android:layout_gravity="center"

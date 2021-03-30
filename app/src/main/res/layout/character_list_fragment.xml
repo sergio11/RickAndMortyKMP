@@ -47,11 +47,11 @@
                     />
 
                 <include
-                    app:uiState="@{uiState}"
+                    app:isVisible="@{uiState instanceof OnLoading}"
                     layout="@layout/common_loading_layout" />
 
                 <include
-                    app:uiState="@{uiState}"
+                    app:isVisible="@{uiState instanceof OnError}"
                     layout="@layout/common_error_occurred_layout" />
 
             </FrameLayout>

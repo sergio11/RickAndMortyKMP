@@ -7,19 +7,17 @@
     <data>
 
         <import type="android.view.View"/>
-        <import type="sanchez.sergio.kmp_test.ui.characters.CharactersState" />
-        <import type="sanchez.sergio.kmp_test.ui.characters.CharactersState.OnError" />
 
         <variable
-            name="uiState"
-            type="CharactersState" />
+            name="isVisible"
+            type="Boolean" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:visibility="@{ uiState instanceof OnError ? View.VISIBLE : View.GONE}"
+        android:visibility="@{ isVisible ? View.VISIBLE : View.GONE}"
         android:gravity="center"
         android:padding="@dimen/common_padding"
         tools:ignore="UseCompoundDrawables"
