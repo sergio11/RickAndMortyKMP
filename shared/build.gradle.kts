@@ -48,7 +48,6 @@ kotlin {
         implementation(Deps.SqlDelight.coroutinesExtensions)
         implementation(Deps.Ktor.commonCore)
         implementation(Deps.Ktor.commonJson)
-        implementation(Deps.Ktor.commonEngine)
         implementation(Deps.Ktor.commonLogging)
         implementation(Deps.Coroutines.common) {
             version {

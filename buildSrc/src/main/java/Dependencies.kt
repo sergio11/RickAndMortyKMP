@@ -103,8 +103,7 @@ object Deps {
 
     object Ktor {
         val commonCore = "io.ktor:ktor-client-core:${Versions.ktor}"
-        val commonEngine = "io.ktor:ktor-client-cio:${Versions.ktor}"
-        val android = "io.ktor:ktor-client-android:${Versions.ktor}"
+        val android = "io.ktor:ktor-client-okhttp:${Versions.ktor}"
         val commonJson = "io.ktor:ktor-client-json:${Versions.ktor}"
         val commonLogging = "io.ktor:ktor-client-logging:${Versions.ktor}"
         val ios = "io.ktor:ktor-client-ios:${Versions.ktor}"
