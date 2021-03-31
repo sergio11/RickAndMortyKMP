@@ -1,0 +1,24 @@
+CREATE TABLE characterEntity (
+  id INTEGER NOT NULL PRIMARY KEY,
+  name TEXT NOT NULL,
+  status TEXT NOT NULL,
+  species TEXT NOT NULL,
+  type TEXT NOT NULL,
+  gender TEXT NOT NULL,
+  origin TEXT NOT NULL,
+  location TEXT NOT NULL,
+  image TEXT NOT NULL,
+  firstEpisode TEXT,
+  url TEXT NOT NULL,
+  created TEXT NOT NULL
+);
+
+selectAll:
+SELECT * FROM characterEntity ORDER BY id;
+
+deleteAll:
+DELETE FROM characterEntity;
+
+insertItem:
+INSERT OR REPLACE INTO characterEntity (id, name, status, species, type, gender, origin, location, image, firstEpisode, url, created)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);

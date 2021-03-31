@@ -1,0 +1,19 @@
+CREATE TABLE locationEntity (
+  id INTEGER NOT NULL PRIMARY KEY,
+  name TEXT NOT NULL,
+  type TEXT NOT NULL,
+  dimension TEXT NOT NULL,
+  residents INTEGER AS Int NOT NULL,
+  url TEXT NOT NULL,
+  created TEXT NOT NULL
+);
+
+selectAll:
+SELECT * FROM locationEntity ORDER BY id;
+
+deleteAll:
+DELETE FROM locationEntity;
+
+insertItem:
+INSERT OR REPLACE INTO locationEntity (id, name, type, dimension, residents, url, created)
+VALUES (?, ?, ?, ?, ?, ?, ?);

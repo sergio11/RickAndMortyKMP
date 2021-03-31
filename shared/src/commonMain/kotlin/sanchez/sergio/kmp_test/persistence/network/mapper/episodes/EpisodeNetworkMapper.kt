@@ -2,6 +2,7 @@ package sanchez.sergio.kmp_test.persistence.network.mapper.episodes
 
 import sanchez.sergio.kmp_test.domain.models.Episode
 import sanchez.sergio.kmp_test.persistence.network.models.EpisodeDTO
+import kotlin.math.sign
 
 /**
  * Episode Network Mapper
@@ -17,7 +18,7 @@ class EpisodeNetworkMapper {
         name = dto.name,
         airDate = dto.airDate,
         episode = dto.episode,
-        characters = dto.characters,
+        characters = dto.characters.size,
         url = dto.url,
         created = dto.created
     )
@@ -25,21 +26,5 @@ class EpisodeNetworkMapper {
     fun dtoToModel(dtoList: List<EpisodeDTO>) =
         dtoList.map { dtoToModel(it) }
 
-    /**
-     * Model To DTO
-     * @param model
-     */
-    fun modelToDto(model: Episode) = EpisodeDTO(
-        id = model.id,
-        name = model.name,
-        airDate = model.airDate,
-        episode = model.episode,
-        characters = model.characters,
-        url = model.url,
-        created = model.created
-    )
-
-    fun modelToDto(modelList: List<Episode>) =
-        modelList.map { modelToDto(it) }
 
 }

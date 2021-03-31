@@ -8,10 +8,10 @@ data class Character (
     val species: String,
     val type: String,
     val gender: CharacterGenderEnum,
-    val origin: SimpleLocation,
-    val simpleLocation: SimpleLocation,
+    val origin: String,
+    val location: String,
     val image: String,
-    val episode: List<String>,
+    val firstEpisode: String?,
     val url: String,
     val created: String
 )
@@ -23,8 +23,3 @@ enum class CharacterStatusEnum {
 enum class CharacterGenderEnum {
     Female, Male, Genderless, unknown
 }
-
-data class SimpleLocation (
-    val name: String,
-    val url: String
-)

@@ -19,7 +19,7 @@ data class CharacterDTO (
     @SerialName("origin")
     val origin: SimpleLocationDTO,
     @SerialName("location")
-    val simpleLocation: SimpleLocationDTO,
+    val location: SimpleLocationDTO,
     @SerialName("image")
     val image: String,
     @SerialName("episode")

@@ -13,26 +13,12 @@ class LocationNetworkMapper {
         name = dto.name,
         type = dto.type,
         dimension = dto.dimension,
-        residents = dto.residents,
+        residents = dto.residents.size,
         url = dto.url,
         created = dto.created
     )
 
     fun dtoToModel(dtoList: List<LocationDTO>) =
         dtoList.map { dtoToModel(it) }
-
-
-    fun modelToDto(model: Location) = LocationDTO(
-        id = model.id,
-        name = model.name,
-        type = model.type,
-        dimension = model.dimension,
-        residents = model.residents,
-        url = model.url,
-        created = model.created
-    )
-
-    fun modelToDto(modelList: List<Location>) =
-        modelList.map { modelToDto(it) }
 
 }

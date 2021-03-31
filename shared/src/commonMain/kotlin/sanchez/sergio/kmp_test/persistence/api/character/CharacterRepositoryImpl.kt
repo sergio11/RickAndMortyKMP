@@ -4,6 +4,7 @@ import sanchez.sergio.kmp_test.domain.models.Character
 import sanchez.sergio.kmp_test.domain.models.PageData
 import sanchez.sergio.kmp_test.persistence.api.RepoErrorException
 import sanchez.sergio.kmp_test.persistence.api.RepoNoResultException
+import sanchez.sergio.kmp_test.persistence.db.repository.core.IDatabaseRepository
 import sanchez.sergio.kmp_test.persistence.network.exception.NetworkNoResultException
 import sanchez.sergio.kmp_test.persistence.network.repository.character.ICharacterNetworkRepository
 import kotlin.coroutines.cancellation.CancellationException
@@ -11,9 +12,11 @@ import kotlin.coroutines.cancellation.CancellationException
 /**
  * Character Repository Impl
  * @param characterNetworkRepository
+ * @param characterDatabaseRepository
  */
 class CharacterRepositoryImpl(
-    private val characterNetworkRepository: ICharacterNetworkRepository): ICharacterRepository {
+    private val characterNetworkRepository: ICharacterNetworkRepository,
+    private val characterDatabaseRepository: IDatabaseRepository<Character>): ICharacterRepository {
 
     /**
      * Find All Paged

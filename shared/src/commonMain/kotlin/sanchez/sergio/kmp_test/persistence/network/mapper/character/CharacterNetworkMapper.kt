@@ -8,9 +8,7 @@ import sanchez.sergio.kmp_test.persistence.network.models.CharacterDTO
 /**
  * Character Network Mapper
  */
-class CharacterNetworkMapper(
-    private val simpleLocationNetworkMapper: SimpleLocationNetworkMapper
-) {
+class CharacterNetworkMapper {
 
     /**
      * DTO to Model
@@ -24,10 +22,10 @@ class CharacterNetworkMapper(
             species = dto.species,
             type = dto.type,
             gender = CharacterGenderEnum.valueOf(dto.gender),
-            origin = simpleLocationNetworkMapper.dtoToModel(dto.origin),
-            simpleLocation = simpleLocationNetworkMapper.dtoToModel(dto.simpleLocation),
+            origin = dto.origin.name,
+            location = dto.location.name,
             image = dto.image,
-            episode = dto.episode,
+            firstEpisode = dto.episode.firstOrNull(),
             url = dto.url,
             created = dto.created
         )
@@ -38,31 +36,4 @@ class CharacterNetworkMapper(
      */
     fun dtoToModel(dtoList: List<CharacterDTO>) =
         dtoList.map { dtoToModel(it) }
-
-    /**
-     * Model to DTO
-     * @param model
-     */
-    fun modelToDto(model: Character) =
-        CharacterDTO(
-            id = model.id,
-            name = model.name,
-            status = model.status.name,
-            species = model.species,
-            type = model.type,
-            gender = model.gender.name,
-            origin = simpleLocationNetworkMapper.modelToDto(model.origin),
-            simpleLocation = simpleLocationNetworkMapper.modelToDto(model.simpleLocation),
-            image = model.image,
-            episode = model.episode,
-            url = model.url,
-            created = model.created
-        )
-
-    /**
-     * Model to DTO
-     * @param modelList
-     */
-    fun modelToDto(modelList: List<Character>) =
-        modelList.map { modelToDto(it) }
 }

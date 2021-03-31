@@ -113,7 +113,7 @@ kotlin {
 }
 
 sqldelight {
-    database("KmpTestDb") {
+    database("KmpArchDb") {
         packageName = "sanchez.sergio.kmp_test.db"
     }
 }

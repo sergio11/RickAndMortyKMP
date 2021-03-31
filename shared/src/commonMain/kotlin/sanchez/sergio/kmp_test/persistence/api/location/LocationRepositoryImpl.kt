@@ -4,15 +4,19 @@ import sanchez.sergio.kmp_test.domain.models.Location
 import sanchez.sergio.kmp_test.domain.models.PageData
 import sanchez.sergio.kmp_test.persistence.api.RepoErrorException
 import sanchez.sergio.kmp_test.persistence.api.RepoNoResultException
+import sanchez.sergio.kmp_test.persistence.db.repository.core.IDatabaseRepository
 import sanchez.sergio.kmp_test.persistence.network.exception.NetworkNoResultException
 import sanchez.sergio.kmp_test.persistence.network.repository.location.ILocationNetworkRepository
 import kotlin.coroutines.cancellation.CancellationException
 
 /**
  * Location Repository
+ * @param locationNetworkRepository
+ * @param locationDatabaseRepository
  */
 class LocationRepositoryImpl(
-    private val locationNetworkRepository: ILocationNetworkRepository
+    private val locationNetworkRepository: ILocationNetworkRepository,
+    private val locationDatabaseRepository: IDatabaseRepository<Location>
 ): ILocationRepository {
 
     /**

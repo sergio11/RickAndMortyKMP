@@ -4,6 +4,7 @@ import sanchez.sergio.kmp_test.domain.models.Episode
 import sanchez.sergio.kmp_test.domain.models.PageData
 import sanchez.sergio.kmp_test.persistence.api.RepoErrorException
 import sanchez.sergio.kmp_test.persistence.api.RepoNoResultException
+import sanchez.sergio.kmp_test.persistence.db.repository.core.IDatabaseRepository
 import sanchez.sergio.kmp_test.persistence.network.exception.NetworkNoResultException
 import sanchez.sergio.kmp_test.persistence.network.repository.episodes.IEpisodesNetworkRepository
 import kotlin.coroutines.cancellation.CancellationException
@@ -11,9 +12,11 @@ import kotlin.coroutines.cancellation.CancellationException
 /**
  * Episode Repository Impl
  * @param episodesNetworkRepository
+ * @param episodesDatabaseRepository
  */
 class EpisodeRepositoryImpl(
-    private val episodesNetworkRepository: IEpisodesNetworkRepository
+    private val episodesNetworkRepository: IEpisodesNetworkRepository,
+    private val episodesDatabaseRepository: IDatabaseRepository<Episode>
 ): IEpisodeRepository {
 
     /**

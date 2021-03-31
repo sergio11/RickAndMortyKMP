@@ -7,6 +7,7 @@ import org.koin.core.module.Module
 import org.koin.core.parameter.parametersOf
 import sanchez.sergio.kmp_test.AppInfo
 import sanchez.sergio.kmp_test.di.modules.characters.charactersModule
+import sanchez.sergio.kmp_test.di.modules.core.databaseModule
 import sanchez.sergio.kmp_test.di.modules.core.networkModule
 import sanchez.sergio.kmp_test.di.modules.core.utilsModule
 import sanchez.sergio.kmp_test.di.modules.episodes.episodesModule
@@ -23,6 +24,7 @@ fun initKoin(appModule: Module): KoinApplication {
         modules(
             utilsModule,
             networkModule,
+            databaseModule,
             *charactersModule,
             *episodesModule,
             *locationsModule,
@@ -32,7 +34,7 @@ fun initKoin(appModule: Module): KoinApplication {
     }
 
     val koin = koinApplication.koin
-// doOnStartup is a lambda which is implemented in Swift on iOS side
+    // doOnStartup is a lambda which is implemented in Swift on iOS side
     val doOnStartup = koin.getOrNull<() -> Unit>()
     doOnStartup?.invoke()
 

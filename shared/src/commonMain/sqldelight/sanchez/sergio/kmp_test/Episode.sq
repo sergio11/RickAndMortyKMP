@@ -1,0 +1,19 @@
+CREATE TABLE episodeEntity (
+  id INTEGER NOT NULL PRIMARY KEY,
+  name TEXT NOT NULL,
+  airDate TEXT NOT NULL,
+  episode TEXT NOT NULL,
+  characters INTEGER AS Int NOT NULL,
+  url TEXT NOT NULL,
+  created TEXT NOT NULL
+);
+
+selectAll:
+SELECT * FROM episodeEntity ORDER BY id;
+
+deleteAll:
+DELETE FROM episodeEntity;
+
+insertItem:
+INSERT OR REPLACE INTO episodeEntity (id, name, airDate, episode, characters, url, created)
+VALUES (?, ?, ?, ?, ?, ?, ?);
