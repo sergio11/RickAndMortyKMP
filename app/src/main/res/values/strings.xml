@@ -9,4 +9,9 @@
     <string name="character_last_known_location">Last known location:</string>
     <string name="character_specie">Specie:</string>
 
+    <string name="location_created_at" formatted="false">Created: %s</string>
+    <string name="location_type" formatted="false">Type: %s</string>
+    <string name="location_residents" formatted="false">Residents: %d</string>
+    <string name="location_dimension" formatted="false">Dimension: %s</string>
+
 </resources>

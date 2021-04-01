@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -12,12 +13,87 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/character_card_size"
+        android:layout_height="@dimen/location_card_size"
         app:cardBackgroundColor="@color/colorPrimary">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:padding="@dimen/common_padding">
+
+            <!-- Location Name -->
+            <TextView
+                android:id="@+id/locationNameTextView"
+                style="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textColor="@color/colorAccent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{location.name}"
+                android:singleLine="true"
+                app:layout_constraintVertical_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/locationCreatedAtTextView"
+                tools:text="Location Name"/>
+
+
+            <!-- Location Created At Text View -->
+            <TextView
+                android:id="@+id/locationCreatedAtTextView"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:textColor="@color/colorAccent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:bindLocationCreatedAt="@{location}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/locationNameTextView"
+                app:layout_constraintBottom_toTopOf="@id/locationTypeTextView"
+                tools:text="Location Created At"/>
+
+            <!-- Location Type Text View -->
+            <TextView
+                android:id="@+id/locationTypeTextView"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:textColor="@color/colorAccent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:bindLocationType="@{location}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/locationCreatedAtTextView"
+                app:layout_constraintBottom_toTopOf="@id/locationResidentsTextView"
+                tools:text="Location Type"/>
+
+            <!-- Location Residents Text View -->
+            <TextView
+                android:id="@+id/locationResidentsTextView"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:textColor="@color/colorAccent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:bindLocationResidents="@{location}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/locationTypeTextView"
+                app:layout_constraintBottom_toTopOf="@id/locationDimensionTextView"
+                tools:text="Location Residents"/>
+
+            <!-- Location Dimension Text View -->
+            <TextView
+                android:id="@+id/locationDimensionTextView"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:textColor="@color/colorAccent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:bindLocationDimension="@{location}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/locationResidentsTextView"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="Location Dimension"/>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

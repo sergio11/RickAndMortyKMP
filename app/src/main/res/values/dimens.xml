@@ -6,6 +6,7 @@
     <dimen name="error_occurred_icon_size">120dp</dimen>
     <dimen name="loading_icon_size">250dp</dimen>
     <dimen name="character_card_size">230dp</dimen>
-    <dimen name="location_card_size">230dp</dimen>
+    <dimen name="location_card_size">180dp</dimen>
+    <dimen name="episode_card_size">180dp</dimen>
     <dimen name="character_status_indicator_size">15dp</dimen>
 </resources>
