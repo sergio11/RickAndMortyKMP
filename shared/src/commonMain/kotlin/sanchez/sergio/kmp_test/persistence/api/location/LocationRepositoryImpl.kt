@@ -25,11 +25,15 @@ class LocationRepositoryImpl(
      */
     @Throws(RepoErrorException::class, RepoNoResultException::class, CancellationException::class)
     override suspend fun findPaginatedList(page: Long): PageData<Location> = try {
-        locationNetworkRepository.findPaginatedList(page)
-    } catch (ex: NetworkNoResultException) {
-        throw RepoNoResultException(ex)
+        locationNetworkRepository.findPaginatedList(page).also {
+            locationDatabaseRepository.save(it.data)
+        }
     } catch (ex: Exception) {
-        throw RepoErrorException(ex)
+        try {
+            PageData(data = locationDatabaseRepository.findAll(), isLast = true)
+        } catch (ex: Exception) {
+            throw RepoErrorException(ex)
+        }
     }
 
     /**

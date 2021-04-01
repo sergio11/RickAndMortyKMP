@@ -6,4 +6,4 @@ package sanchez.sergio.kmp_test.domain.models
  * @param data
  * @param isLast
  */
-data class PageData<T> (val page: Long, val data: List<T>, val isLast: Boolean)
+data class PageData<T> (val page: Long = 1, val data: List<T>, val isLast: Boolean)

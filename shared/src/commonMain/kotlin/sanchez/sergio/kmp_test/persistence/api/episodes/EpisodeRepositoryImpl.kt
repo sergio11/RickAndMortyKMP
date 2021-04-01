@@ -25,11 +25,15 @@ class EpisodeRepositoryImpl(
      */
     @Throws(RepoErrorException::class, RepoNoResultException::class, CancellationException::class)
     override suspend fun findPaginatedList(page: Long): PageData<Episode> = try {
-        episodesNetworkRepository.findPaginatedList(page)
-    } catch (ex: NetworkNoResultException) {
-        throw RepoNoResultException(ex)
+        episodesNetworkRepository.findPaginatedList(page).also {
+            episodesDatabaseRepository.save(it.data)
+        }
     } catch (ex: Exception) {
-        throw RepoErrorException(ex)
+        try {
+            PageData(data = episodesDatabaseRepository.findAll(), isLast = true)
+        } catch (ex: Exception) {
+            throw RepoErrorException(ex)
+        }
     }
 
     /**

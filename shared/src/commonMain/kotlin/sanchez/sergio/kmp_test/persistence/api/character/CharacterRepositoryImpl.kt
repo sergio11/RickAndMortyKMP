@@ -24,11 +24,15 @@ class CharacterRepositoryImpl(
      */
     @Throws(RepoErrorException::class, RepoNoResultException::class, CancellationException::class)
     override suspend fun findPaginatedList(page: Long): PageData<Character> = try {
-        characterNetworkRepository.findPaginatedList(page)
-    } catch (ex: NetworkNoResultException) {
-        throw RepoNoResultException(ex)
+        characterNetworkRepository.findPaginatedList(page).also {
+            characterDatabaseRepository.save(it.data)
+        }
     } catch (ex: Exception) {
-        throw RepoErrorException(ex)
+        try {
+            PageData(data = characterDatabaseRepository.findAll(), isLast = true)
+        } catch (ex: Exception) {
+            throw RepoErrorException(ex)
+        }
     }
 
     /**
