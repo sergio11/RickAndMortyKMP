@@ -14,4 +14,8 @@
     <string name="location_residents" formatted="false">Residents: %d</string>
     <string name="location_dimension" formatted="false">Dimension: %s</string>
 
+    <string name="episode_created_at" formatted="false">Created: %s</string>
+    <string name="episode_air_date" formatted="false">Air Date: %s</string>
+    <string name="episode_characters" formatted="false">Characters: %d</string>
+
 </resources>

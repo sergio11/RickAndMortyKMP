@@ -12,12 +12,68 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/character_card_size"
+        android:layout_height="@dimen/episode_card_size"
         app:cardBackgroundColor="@color/colorPrimary">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:padding="@dimen/common_padding">
+
+            <!-- Episode Name -->
+            <TextView
+                android:id="@+id/episodeNameTextView"
+                style="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textColor="@color/colorAccent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{episode.name}"
+                android:singleLine="true"
+                app:layout_constraintVertical_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/episodeCreatedAtTextView"/>
+
+
+            <!-- Episode Created At Text View -->
+            <TextView
+                android:id="@+id/episodeCreatedAtTextView"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:textColor="@color/colorAccent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:bindEpisodeCreatedAt="@{episode}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/episodeNameTextView"
+                app:layout_constraintBottom_toTopOf="@id/episodeAirDateTextView"/>
+
+            <!-- Episode Air Date Text View -->
+            <TextView
+                android:id="@+id/episodeAirDateTextView"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:textColor="@color/colorAccent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:bindEpisodeAirDate="@{episode}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/episodeCreatedAtTextView"
+                app:layout_constraintBottom_toTopOf="@id/episodeCharactersTextView"/>
+
+            <!-- Episode Characters Text View -->
+            <TextView
+                android:id="@+id/episodeCharactersTextView"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:textColor="@color/colorAccent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:bindEpisodeCharacters="@{episode}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/episodeAirDateTextView"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
