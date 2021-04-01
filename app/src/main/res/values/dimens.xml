@@ -9,4 +9,5 @@
     <dimen name="location_card_size">180dp</dimen>
     <dimen name="episode_card_size">180dp</dimen>
     <dimen name="character_status_indicator_size">15dp</dimen>
+    <dimen name="app_icon_size">40dp</dimen>
 </resources>

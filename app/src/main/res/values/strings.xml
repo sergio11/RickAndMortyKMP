@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KaMP Kit</string>
+    <string name="app_name">Rick And Morty KMP</string>
 
     <string name="menu_characters">Characters</string>
     <string name="menu_locations">Locations</string>
