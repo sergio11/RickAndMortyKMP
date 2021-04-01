@@ -8,7 +8,7 @@
 import UIKit
 import shared
 
-class HomeViewController: UIViewController {
+class CharactersViewController: UITableViewController {
     
     var viewModel: CharactersViewModel!
     weak var coordinator: MainCoordinator?
@@ -51,9 +51,5 @@ class HomeViewController: UIViewController {
     
     private func onDataLoaded(pageData: PageData<Character>) {
         print("onDataLoaded \(pageData.data.count)")
-        
     }
-
-
-
 }
