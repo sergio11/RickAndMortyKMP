@@ -1,5 +1,6 @@
 # Rick And Morty Kotlin Multiplatform App
 
+An App architecture example based on Kotlin Multiplatform Mobile
 
  ## Screenshots
  
