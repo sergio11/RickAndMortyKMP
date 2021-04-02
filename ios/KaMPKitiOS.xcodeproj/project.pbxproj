@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D5A22DC261651D000B62604 /* CharactersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A22DA261651D000B62604 /* CharactersTableViewController.swift */; };
-		3D5A22DD261651D000B62604 /* CharactersTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D5A22DB261651D000B62604 /* CharactersTableViewController.xib */; };
 		3D5A22E3261652B900B62604 /* EpisodesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A22E1261652B900B62604 /* EpisodesTableViewController.swift */; };
 		3D5A22E4261652B900B62604 /* EpisodesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D5A22E2261652B900B62604 /* EpisodesTableViewController.xib */; };
 		3D5A22EA261652DB00B62604 /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A22E8261652DB00B62604 /* LocationsTableViewController.swift */; };
 		3D5A22EB261652DB00B62604 /* LocationsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D5A22E9261652DB00B62604 /* LocationsTableViewController.xib */; };
 		3D7346992613A48000FCEC57 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7346982613A48000FCEC57 /* Coordinator.swift */; };
 		3D7346A82613A5EA00FCEC57 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7346A72613A5EA00FCEC57 /* MainCoordinator.swift */; };
+		3D8081802617431400EE8F38 /* CharacterTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D80817F2617431400EE8F38 /* CharacterTableViewCellViewModel.swift */; };
+		3D80818E261746FB00EE8F38 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D80818C261746FB00EE8F38 /* CharactersViewController.swift */; };
+		3D80818F261746FB00EE8F38 /* CharactersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D80818D261746FB00EE8F38 /* CharactersViewController.xib */; };
+		3D80819826174B8800EE8F38 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D80819626174B8800EE8F38 /* CharacterTableViewCell.swift */; };
+		3D80819926174B8800EE8F38 /* CharacterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D80819726174B8800EE8F38 /* CharacterTableViewCell.xib */; };
 		3DF1DAC62612544D00221E99 /* koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1DAC52612544D00221E99 /* koin.swift */; };
 		3DFF917C64A18A83DA010EE1 /* Pods_KaMPKitiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B859F3FB23133D22AB9DD835 /* Pods_KaMPKitiOS.framework */; };
 		F1465F0123AA94BF0055F7C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1465F0023AA94BF0055F7C3 /* AppDelegate.swift */; };
@@ -45,14 +48,17 @@
 /* Begin PBXFileReference section */
 		1DFCC00C8DAA719770A18D1A /* Pods-KaMPKitiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaMPKitiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-KaMPKitiOS/Pods-KaMPKitiOS.release.xcconfig"; sourceTree = "<group>"; };
 		2A1ED6A4A2A53F5F75C58E5F /* Pods-KaMPKitiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaMPKitiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-KaMPKitiOS/Pods-KaMPKitiOS.release.xcconfig"; sourceTree = "<group>"; };
-		3D5A22DA261651D000B62604 /* CharactersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableViewController.swift; sourceTree = "<group>"; };
-		3D5A22DB261651D000B62604 /* CharactersTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharactersTableViewController.xib; sourceTree = "<group>"; };
 		3D5A22E1261652B900B62604 /* EpisodesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesTableViewController.swift; sourceTree = "<group>"; };
 		3D5A22E2261652B900B62604 /* EpisodesTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodesTableViewController.xib; sourceTree = "<group>"; };
 		3D5A22E8261652DB00B62604 /* LocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
 		3D5A22E9261652DB00B62604 /* LocationsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationsTableViewController.xib; sourceTree = "<group>"; };
 		3D7346982613A48000FCEC57 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		3D7346A72613A5EA00FCEC57 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		3D80817F2617431400EE8F38 /* CharacterTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		3D80818C261746FB00EE8F38 /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
+		3D80818D261746FB00EE8F38 /* CharactersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharactersViewController.xib; sourceTree = "<group>"; };
+		3D80819626174B8800EE8F38 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
+		3D80819726174B8800EE8F38 /* CharacterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterTableViewCell.xib; sourceTree = "<group>"; };
 		3DF1DAC52612544D00221E99 /* koin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = koin.swift; sourceTree = "<group>"; };
 		B859F3FB23133D22AB9DD835 /* Pods_KaMPKitiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KaMPKitiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1F782AF3705197012D0C33 /* Pods-KaMPKitiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaMPKitiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KaMPKitiOS/Pods-KaMPKitiOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -100,8 +106,9 @@
 		3D5A22D72616519A00B62604 /* Characters */ = {
 			isa = PBXGroup;
 			children = (
-				3D5A22DA261651D000B62604 /* CharactersTableViewController.swift */,
-				3D5A22DB261651D000B62604 /* CharactersTableViewController.xib */,
+				3D80816F2617406600EE8F38 /* Cell */,
+				3D80818C261746FB00EE8F38 /* CharactersViewController.swift */,
+				3D80818D261746FB00EE8F38 /* CharactersViewController.xib */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -183,6 +190,16 @@
 				3D5A22D72616519A00B62604 /* Characters */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3D80816F2617406600EE8F38 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3D80817F2617431400EE8F38 /* CharacterTableViewCellViewModel.swift */,
+				3D80819626174B8800EE8F38 /* CharacterTableViewCell.swift */,
+				3D80819726174B8800EE8F38 /* CharacterTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		6278498AD96A4D949D39BF44 /* Frameworks */ = {
@@ -363,9 +380,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D80818F261746FB00EE8F38 /* CharactersViewController.xib in Resources */,
 				3D5A22EB261652DB00B62604 /* LocationsTableViewController.xib in Resources */,
-				3D5A22DD261651D000B62604 /* CharactersTableViewController.xib in Resources */,
 				F1465F0D23AA94BF0055F7C3 /* LaunchScreen.storyboard in Resources */,
+				3D80819926174B8800EE8F38 /* CharacterTableViewCell.xib in Resources */,
 				F1465F0A23AA94BF0055F7C3 /* Assets.xcassets in Resources */,
 				3D5A22E4261652B900B62604 /* EpisodesTableViewController.xib in Resources */,
 			);
@@ -434,13 +452,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D8081802617431400EE8F38 /* CharacterTableViewCellViewModel.swift in Sources */,
 				3D5A22EA261652DB00B62604 /* LocationsTableViewController.swift in Sources */,
 				3D5A22E3261652B900B62604 /* EpisodesTableViewController.swift in Sources */,
 				3D7346992613A48000FCEC57 /* Coordinator.swift in Sources */,
-				3D5A22DC261651D000B62604 /* CharactersTableViewController.swift in Sources */,
 				3DF1DAC62612544D00221E99 /* koin.swift in Sources */,
 				F1465F0523AA94BF0055F7C3 /* ViewController.swift in Sources */,
 				3D7346A82613A5EA00FCEC57 /* MainCoordinator.swift in Sources */,
+				3D80819826174B8800EE8F38 /* CharacterTableViewCell.swift in Sources */,
+				3D80818E261746FB00EE8F38 /* CharactersViewController.swift in Sources */,
 				F1465F0123AA94BF0055F7C3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

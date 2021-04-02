@@ -31,12 +31,12 @@ final class MainCoordinator: Coordinator {
     }
     
     
-    private func buildCharactersViewController() -> CharactersTableViewController {
+    private func buildCharactersViewController() -> CharactersViewController {
         let getCharactersInteract = koin.get(objCClass: GetCharactersInteract.self, qualifier: nil) as! GetCharactersInteract
         let kermit = koin.get(objCClass: Kermit.self, parameter: "CharactersViewModel") as! Kermit
         let charactersViewModel = CharactersViewModel(getCharactersInteract: getCharactersInteract, kermit: kermit)
         
-        let charactersTableVC = CharactersTableViewController()
+        let charactersTableVC = CharactersViewController()
         charactersTableVC.viewModel = charactersViewModel
         charactersTableVC.coordinator = self
         
@@ -74,10 +74,6 @@ final class MainCoordinator: Coordinator {
         episodesTableVC.tabBarItem = item
         return episodesTableVC
     }
-
-    
-    
-    
 
     
 }
