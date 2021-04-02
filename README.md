@@ -2,6 +2,12 @@
 
 An App architecture example based on Kotlin Multiplatform Mobile
 
+ ## Tech stack & Open-source libraries
+ 
+ - Kotlin Multiplaform
+  - Ktor (multiplatform asynchronous HTTP client).
+  - SQLDelight (SQLDelight generates typesafe kotlin APIs from your SQL statements).
+
  ## Screenshots
  
   ### Android App version
