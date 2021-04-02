@@ -3,7 +3,7 @@
 
  ## Screenshots
  
- ### IOS
+ ### IOS App version
 
  <img width="250px" align="left" src="./screenshots/app_ios_1.png" />
  <img width="250px" align="left" src="./screenshots/app_ios_2.png" />
