@@ -11,19 +11,25 @@ import shared
 
 class EpisodesViewController: UIViewController {
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        return refreshControl
+    }()
+    
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
             tableView.register(UINib(nibName: EpisodeTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: EpisodeTableViewCell.reuseIdentifier)
+            tableView.addSubview(refreshControl)
         }
     }
     
-    private var episodes: [Episode] = [] {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
+    private var episodes: [Episode] = []
+    private var isLoadingPageList = false
+    
     
     var viewModel: EpisodesViewModel!
     weak var coordinator: MainCoordinator?
@@ -33,10 +39,12 @@ class EpisodesViewController: UIViewController {
         bindViewModel()
     }
     
+    @objc func refresh(_ sender: AnyObject) {
+        viewModel.load(page: 1)
+    }
+    
     private func bindViewModel() {
-        
         viewModel.state.addObserver(observer: { [weak self] (episodeState: EpisodesState?) in
-            
             guard let state = episodeState else { return }
             
             if(state is EpisodesState.OnLoading) {
@@ -48,25 +56,30 @@ class EpisodesViewController: UIViewController {
                 let successState = state as! EpisodesState.OnSuccess
                 self?.onDataLoaded(pageData: successState.pageData)
             }
-            
-
         })
-        
-        viewModel.loadNextPage()
-        
+        viewModel.load(page: 1)
     }
     
     private func onLoading() {
-        print("onLoading CALLED")
+        refreshControl.beginRefreshing()
     }
     
     private func onError(error: KotlinException) {
-        print("onError CALLED")
+        isLoadingPageList = false
+        refreshControl.endRefreshing()
     }
     
     private func onDataLoaded(pageData: PageData<Episode>) {
-        print("onDataLoaded \(pageData.data.count)")
-        self.episodes = pageData.data as! [Episode]
+        refreshControl.endRefreshing()
+        let episodes = pageData.data as! [Episode]
+        print("onDataLoaded, Page: \(pageData.page), Count: \(episodes.count) ")
+        if(pageData.page == 1) {
+            self.episodes = episodes
+        } else {
+            self.episodes.append(contentsOf: episodes)
+        }
+        isLoadingPageList = false
+        self.tableView.reloadData()
     }
 
 }
@@ -85,6 +98,14 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return EpisodeTableViewCell.rowHeight
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (((scrollView.contentOffset.y + scrollView.frame.size.height) > scrollView.contentSize.height ) &&
+                episodes.count > 0 && !isLoadingPageList && !viewModel.isLastPage()){
+            isLoadingPageList = true
+            viewModel.loadNextPage()
+        }
     }
     
     private func viewModelForCellAt(indexPath: IndexPath) -> EpisodeTableViewCellViewModel {
