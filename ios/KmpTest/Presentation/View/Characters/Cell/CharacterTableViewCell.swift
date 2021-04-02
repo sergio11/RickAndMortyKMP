@@ -13,7 +13,9 @@ class CharacterTableViewCell: UITableViewCell {
 
     @IBOutlet weak var characterName: UILabel!
     @IBOutlet weak var characterImage: UIImageView!
-    
+    @IBOutlet weak var characterState: UILabel!
+    @IBOutlet weak var species: UILabel!
+    @IBOutlet weak var lastKnownLocation: UILabel!
     
     class var nibName: String {
         return String(describing: CharacterTableViewCell.self)
@@ -41,6 +43,17 @@ class CharacterTableViewCell: UITableViewCell {
     private func configureCell() {
         characterName.text = viewModel.name
         Nuke.loadImage(with: URL(string: viewModel.image)!, into: characterImage)
+        lastKnownLocation.text = "Last Known location: \(viewModel.lastKnownLocation)"
+        species.text = "Specie: \(viewModel.species)"
+        characterState.text = viewModel.status.name
+        switch viewModel.status {
+            case .alive:
+                characterState.textColor = UIColor(named: "character_alive")
+            case .dead:
+                characterState.textColor = UIColor(named: "character_dead")
+            default:
+                break
+        }
         
     }
     

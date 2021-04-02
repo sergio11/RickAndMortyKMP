@@ -1,6 +1,5 @@
 //
 //  AppDelegate.swift
-//  KaMPKitiOS
 //
 
 import UIKit

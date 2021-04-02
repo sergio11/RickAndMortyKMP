@@ -31,12 +31,8 @@ class CharactersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
-        print("Characters viewDidLoad CALLED")
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        print("Characters viewWillAppear CALLED")
-    }
     
     private func bindViewModel() {
         
@@ -92,12 +88,9 @@ extension CharactersViewController: UITableViewDelegate, UITableViewDataSource {
         return CharacterTableViewCell.rowHeight
     }
     
-    
     private func viewModelForCellAt(indexPath: IndexPath) -> CharacterTableViewCellViewModel {
         let character = characters[indexPath.row]
         let cellViewModel = CharacterTableViewCellViewModel(model: character)
         return cellViewModel
     }
-    
-    
 }

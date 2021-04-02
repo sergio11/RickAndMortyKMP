@@ -62,16 +62,16 @@
 		3DF1DAC52612544D00221E99 /* koin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = koin.swift; sourceTree = "<group>"; };
 		B859F3FB23133D22AB9DD835 /* Pods_KaMPKitiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KaMPKitiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1F782AF3705197012D0C33 /* Pods-KaMPKitiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaMPKitiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KaMPKitiOS/Pods-KaMPKitiOS.debug.xcconfig"; sourceTree = "<group>"; };
-		F1465EFD23AA94BF0055F7C3 /* KaMPKitiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KaMPKitiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1465EFD23AA94BF0055F7C3 /* KmpTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KmpTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1465F0023AA94BF0055F7C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1465F0423AA94BF0055F7C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F1465F0923AA94BF0055F7C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1465F0C23AA94BF0055F7C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1465F0E23AA94BF0055F7C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F1465F1323AA94C00055F7C3 /* KaMPKitiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KaMPKitiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1465F1323AA94C00055F7C3 /* KmpTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KmpTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1465F1723AA94C00055F7C3 /* KaMPKitiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaMPKitiOSTests.swift; sourceTree = "<group>"; };
 		F1465F1923AA94C00055F7C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F1465F1E23AA94C00055F7C3 /* KaMPKitiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KaMPKitiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1465F1E23AA94C00055F7C3 /* KmpTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KmpTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1465F2223AA94C00055F7C3 /* KaMPKitiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaMPKitiOSUITests.swift; sourceTree = "<group>"; };
 		F1465F2423AA94C00055F7C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9C259C83C689DF8F4602F38 /* Pods-KaMPKitiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaMPKitiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KaMPKitiOS/Pods-KaMPKitiOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -224,9 +224,9 @@
 		F1465EF423AA94BF0055F7C3 = {
 			isa = PBXGroup;
 			children = (
-				F1465EFF23AA94BF0055F7C3 /* KaMPKitiOS */,
-				F1465F1623AA94C00055F7C3 /* KaMPKitiOSTests */,
-				F1465F2123AA94C00055F7C3 /* KaMPKitiOSUITests */,
+				F1465EFF23AA94BF0055F7C3 /* KmpTest */,
+				F1465F1623AA94C00055F7C3 /* KmpTestTests */,
+				F1465F2123AA94C00055F7C3 /* KmpTestUITests */,
 				F1465EFE23AA94BF0055F7C3 /* Products */,
 				DF9BBECBCD175B90105DA8D9 /* Pods */,
 				6278498AD96A4D949D39BF44 /* Frameworks */,
@@ -236,14 +236,14 @@
 		F1465EFE23AA94BF0055F7C3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F1465EFD23AA94BF0055F7C3 /* KaMPKitiOS.app */,
-				F1465F1323AA94C00055F7C3 /* KaMPKitiOSTests.xctest */,
-				F1465F1E23AA94C00055F7C3 /* KaMPKitiOSUITests.xctest */,
+				F1465EFD23AA94BF0055F7C3 /* KmpTest.app */,
+				F1465F1323AA94C00055F7C3 /* KmpTestTests.xctest */,
+				F1465F1E23AA94C00055F7C3 /* KmpTestUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F1465EFF23AA94BF0055F7C3 /* KaMPKitiOS */ = {
+		F1465EFF23AA94BF0055F7C3 /* KmpTest */ = {
 			isa = PBXGroup;
 			children = (
 				3D7346A12613A4F100FCEC57 /* Presentation */,
@@ -253,33 +253,33 @@
 				F1465F0923AA94BF0055F7C3 /* Assets.xcassets */,
 				F1465F0E23AA94BF0055F7C3 /* Info.plist */,
 			);
-			path = KaMPKitiOS;
+			path = KmpTest;
 			sourceTree = "<group>";
 		};
-		F1465F1623AA94C00055F7C3 /* KaMPKitiOSTests */ = {
+		F1465F1623AA94C00055F7C3 /* KmpTestTests */ = {
 			isa = PBXGroup;
 			children = (
 				F1465F1723AA94C00055F7C3 /* KaMPKitiOSTests.swift */,
 				F1465F1923AA94C00055F7C3 /* Info.plist */,
 			);
-			path = KaMPKitiOSTests;
+			path = KmpTestTests;
 			sourceTree = "<group>";
 		};
-		F1465F2123AA94C00055F7C3 /* KaMPKitiOSUITests */ = {
+		F1465F2123AA94C00055F7C3 /* KmpTestUITests */ = {
 			isa = PBXGroup;
 			children = (
 				F1465F2223AA94C00055F7C3 /* KaMPKitiOSUITests.swift */,
 				F1465F2423AA94C00055F7C3 /* Info.plist */,
 			);
-			path = KaMPKitiOSUITests;
+			path = KmpTestUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F1465EFC23AA94BF0055F7C3 /* KaMPKitiOS */ = {
+		F1465EFC23AA94BF0055F7C3 /* KmpTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F1465F2723AA94C00055F7C3 /* Build configuration list for PBXNativeTarget "KaMPKitiOS" */;
+			buildConfigurationList = F1465F2723AA94C00055F7C3 /* Build configuration list for PBXNativeTarget "KmpTest" */;
 			buildPhases = (
 				DE3B37D33D11C1968D62DBBA /* [CP] Check Pods Manifest.lock */,
 				F1465EF923AA94BF0055F7C3 /* Sources */,
@@ -291,14 +291,14 @@
 			);
 			dependencies = (
 			);
-			name = KaMPKitiOS;
+			name = KmpTest;
 			productName = KaMPKitiOS;
-			productReference = F1465EFD23AA94BF0055F7C3 /* KaMPKitiOS.app */;
+			productReference = F1465EFD23AA94BF0055F7C3 /* KmpTest.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F1465F1223AA94C00055F7C3 /* KaMPKitiOSTests */ = {
+		F1465F1223AA94C00055F7C3 /* KmpTestTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F1465F2A23AA94C00055F7C3 /* Build configuration list for PBXNativeTarget "KaMPKitiOSTests" */;
+			buildConfigurationList = F1465F2A23AA94C00055F7C3 /* Build configuration list for PBXNativeTarget "KmpTestTests" */;
 			buildPhases = (
 				F1465F0F23AA94C00055F7C3 /* Sources */,
 				F1465F1023AA94C00055F7C3 /* Frameworks */,
@@ -309,14 +309,14 @@
 			dependencies = (
 				F1465F1523AA94C00055F7C3 /* PBXTargetDependency */,
 			);
-			name = KaMPKitiOSTests;
+			name = KmpTestTests;
 			productName = KaMPKitiOSTests;
-			productReference = F1465F1323AA94C00055F7C3 /* KaMPKitiOSTests.xctest */;
+			productReference = F1465F1323AA94C00055F7C3 /* KmpTestTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F1465F1D23AA94C00055F7C3 /* KaMPKitiOSUITests */ = {
+		F1465F1D23AA94C00055F7C3 /* KmpTestUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F1465F2D23AA94C00055F7C3 /* Build configuration list for PBXNativeTarget "KaMPKitiOSUITests" */;
+			buildConfigurationList = F1465F2D23AA94C00055F7C3 /* Build configuration list for PBXNativeTarget "KmpTestUITests" */;
 			buildPhases = (
 				F1465F1A23AA94C00055F7C3 /* Sources */,
 				F1465F1B23AA94C00055F7C3 /* Frameworks */,
@@ -327,9 +327,9 @@
 			dependencies = (
 				F1465F2023AA94C00055F7C3 /* PBXTargetDependency */,
 			);
-			name = KaMPKitiOSUITests;
+			name = KmpTestUITests;
 			productName = KaMPKitiOSUITests;
-			productReference = F1465F1E23AA94C00055F7C3 /* KaMPKitiOSUITests.xctest */;
+			productReference = F1465F1E23AA94C00055F7C3 /* KmpTestUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -340,7 +340,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1220;
-				ORGANIZATIONNAME = Touchlab;
+				ORGANIZATIONNAME = "Sergio Sánchez Sánchez";
 				TargetAttributes = {
 					F1465EFC23AA94BF0055F7C3 = {
 						CreatedOnToolsVersion = 11.2.1;
@@ -355,7 +355,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F1465EF823AA94BF0055F7C3 /* Build configuration list for PBXProject "KaMPKitiOS" */;
+			buildConfigurationList = F1465EF823AA94BF0055F7C3 /* Build configuration list for PBXProject "KmpTest" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -368,9 +368,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F1465EFC23AA94BF0055F7C3 /* KaMPKitiOS */,
-				F1465F1223AA94C00055F7C3 /* KaMPKitiOSTests */,
-				F1465F1D23AA94C00055F7C3 /* KaMPKitiOSUITests */,
+				F1465EFC23AA94BF0055F7C3 /* KmpTest */,
+				F1465F1223AA94C00055F7C3 /* KmpTestTests */,
+				F1465F1D23AA94C00055F7C3 /* KmpTestUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -486,12 +486,12 @@
 /* Begin PBXTargetDependency section */
 		F1465F1523AA94C00055F7C3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F1465EFC23AA94BF0055F7C3 /* KaMPKitiOS */;
+			target = F1465EFC23AA94BF0055F7C3 /* KmpTest */;
 			targetProxy = F1465F1423AA94C00055F7C3 /* PBXContainerItemProxy */;
 		};
 		F1465F2023AA94C00055F7C3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F1465EFC23AA94BF0055F7C3 /* KaMPKitiOS */;
+			target = F1465EFC23AA94BF0055F7C3 /* KmpTest */;
 			targetProxy = F1465F1F23AA94C00055F7C3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -637,7 +637,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PX63F4TNY3;
-				INFOPLIST_FILE = KaMPKitiOS/Info.plist;
+				INFOPLIST_FILE = KmpTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -650,7 +650,7 @@
 					"\"shared\"",
 					"-lsqlite3",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.touchlab.kampkit.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = "sanchez.sergio.kmp-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -664,7 +664,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PX63F4TNY3;
-				INFOPLIST_FILE = KaMPKitiOS/Info.plist;
+				INFOPLIST_FILE = KmpTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -677,7 +677,7 @@
 					"\"shared\"",
 					"-lsqlite3",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.touchlab.kampkit.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = "sanchez.sergio.kmp-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -701,7 +701,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KaMPKitiOS.app/KaMPKitiOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KmpTest.app/KmpTest";
 			};
 			name = Debug;
 		};
@@ -722,7 +722,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KaMPKitiOS.app/KaMPKitiOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KmpTest.app/KmpTest";
 			};
 			name = Release;
 		};
@@ -767,7 +767,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F1465EF823AA94BF0055F7C3 /* Build configuration list for PBXProject "KaMPKitiOS" */ = {
+		F1465EF823AA94BF0055F7C3 /* Build configuration list for PBXProject "KmpTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F1465F2523AA94C00055F7C3 /* Debug */,
@@ -776,7 +776,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F1465F2723AA94C00055F7C3 /* Build configuration list for PBXNativeTarget "KaMPKitiOS" */ = {
+		F1465F2723AA94C00055F7C3 /* Build configuration list for PBXNativeTarget "KmpTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F1465F2823AA94C00055F7C3 /* Debug */,
@@ -785,7 +785,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F1465F2A23AA94C00055F7C3 /* Build configuration list for PBXNativeTarget "KaMPKitiOSTests" */ = {
+		F1465F2A23AA94C00055F7C3 /* Build configuration list for PBXNativeTarget "KmpTestTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F1465F2B23AA94C00055F7C3 /* Debug */,
@@ -794,7 +794,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F1465F2D23AA94C00055F7C3 /* Build configuration list for PBXNativeTarget "KaMPKitiOSUITests" */ = {
+		F1465F2D23AA94C00055F7C3 /* Build configuration list for PBXNativeTarget "KmpTestUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F1465F2E23AA94C00055F7C3 /* Debug */,

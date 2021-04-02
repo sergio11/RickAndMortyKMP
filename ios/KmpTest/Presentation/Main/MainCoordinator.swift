@@ -1,6 +1,5 @@
 //
 //  MainCoordinator.swift
-//  KaMPKitiOS
 //
 //  Created by Sergio Sánchez Sánchez on 30/3/21.
 //

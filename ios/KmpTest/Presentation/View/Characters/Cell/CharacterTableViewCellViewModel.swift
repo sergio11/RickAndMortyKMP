@@ -23,6 +23,18 @@ class CharacterTableViewCellViewModel {
         return character.image
     }
     
+    var lastKnownLocation: String {
+        return character.location
+    }
+    
+    var species: String {
+        return character.species
+    }
+    
+    var status: CharacterStatusEnum {
+        return character.status
+    }
+    
     
     // MARK: - Init
     init(model: Character) {
