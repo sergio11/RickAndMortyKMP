@@ -11,19 +11,25 @@ import shared
 class CharactersViewController: UIViewController {
 
 
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        return refreshControl
+    }()
+    
+
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
             tableView.register(UINib(nibName: CharacterTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: CharacterTableViewCell.reuseIdentifier)
+            tableView.addSubview(refreshControl)
         }
     }
     
-    private var characters: [Character] = [] {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
+    private var characters: [Character] = []
+    private var isLoadingPageList = false
     
     var viewModel: CharactersViewModel!
     weak var coordinator: MainCoordinator?
@@ -33,9 +39,11 @@ class CharactersViewController: UIViewController {
         bindViewModel()
     }
     
+    @objc func refresh(_ sender: AnyObject) {
+        viewModel.load(page: 1)
+    }
     
     private func bindViewModel() {
-        
         viewModel.state.addObserver(observer: { [weak self] (charactersState: CharactersState?) in
             
             guard let state = charactersState else { return }
@@ -49,25 +57,30 @@ class CharactersViewController: UIViewController {
                 let successState = state as! CharactersState.OnSuccess
                 self?.onDataLoaded(pageData: successState.pageData)
             }
-            
-
         })
-        
-        viewModel.loadNextPage()
-        
+        viewModel.load(page: 1)
     }
     
     private func onLoading() {
-        print("onLoading CALLED")
+        refreshControl.beginRefreshing()
     }
     
     private func onError(error: KotlinException) {
-        print("onError CALLED")
+        isLoadingPageList = false
+        refreshControl.endRefreshing()
     }
     
     private func onDataLoaded(pageData: PageData<Character>) {
-        print("onDataLoaded \(pageData.data.count)")
-        self.characters = pageData.data as! [Character]
+        refreshControl.endRefreshing()
+        let characters = pageData.data as! [Character]
+        print("onDataLoaded, Page: \(pageData.page), Count: \(characters.count) ")
+        if(pageData.page == 1) {
+            self.characters = characters
+        } else {
+            self.characters.append(contentsOf: characters)
+        }
+        isLoadingPageList = false
+        self.tableView.reloadData()
     }
 
 }
@@ -86,6 +99,14 @@ extension CharactersViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CharacterTableViewCell.rowHeight
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (((scrollView.contentOffset.y + scrollView.frame.size.height) > scrollView.contentSize.height ) &&
+                characters.count > 0 && !isLoadingPageList && !viewModel.isLastPage()){
+            isLoadingPageList = true
+            viewModel.loadNextPage()
+        }
     }
     
     private func viewModelForCellAt(indexPath: IndexPath) -> CharacterTableViewCellViewModel {
