@@ -24,6 +24,7 @@ final class MainCoordinator: Coordinator {
         let locationsVC = buildLocationsViewController()
         let episodesVC = buildEpisodesViewController()
         let tabBarController = UITabBarController()
+        tabBarController.title = "Rick And Morty KMP"
         tabBarController.viewControllers = [charactersVC, locationsVC, episodesVC]
         tabBarController.selectedViewController = charactersVC
         navigationController.setViewControllers([tabBarController], animated: false)

@@ -10,20 +10,25 @@ import UIKit
 import shared
 
 class LocationsViewController: UIViewController {
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        return refreshControl
+    }()
 
     @IBOutlet var tableView: UITableView! {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
             tableView.register(UINib(nibName: LocationTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: LocationTableViewCell.reuseIdentifier)
+            tableView.addSubview(refreshControl)
         }
     }
     
-    private var locations: [Location] = [] {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
+    private var locations: [Location] = []
+    private var isLoadingPageList = false
     
     
     var viewModel: LocationsViewModel!
@@ -34,12 +39,13 @@ class LocationsViewController: UIViewController {
         bindViewModel()
     }
     
+    @objc func refresh(_ sender: AnyObject) {
+        viewModel.load(page: 1)
+    }
+    
     private func bindViewModel() {
-        
         viewModel.state.addObserver(observer: { [weak self] (locationState: LocationsState?) in
-            
             guard let state = locationState else { return }
-            
             if(state is LocationsState.OnLoading) {
                 self?.onLoading()
             } else if (state is LocationsState.OnError) {
@@ -49,25 +55,30 @@ class LocationsViewController: UIViewController {
                 let successState = state as! LocationsState.OnSuccess
                 self?.onDataLoaded(pageData: successState.pageData)
             }
-            
-
         })
-        
-        viewModel.loadNextPage()
-        
+        viewModel.load(page: 1)
     }
     
     private func onLoading() {
-        print("onLoading CALLED")
+        refreshControl.beginRefreshing()
     }
     
     private func onError(error: KotlinException) {
-        print("onError CALLED")
+        isLoadingPageList = false
+        refreshControl.endRefreshing()
     }
     
     private func onDataLoaded(pageData: PageData<Location>) {
-        print("onDataLoaded \(pageData.data.count)")
-        self.locations = pageData.data as! [Location]
+        refreshControl.endRefreshing()
+        let locations = pageData.data as! [Location]
+        print("onDataLoaded, Page: \(pageData.page), Count: \(locations.count) ")
+        if(pageData.page == 1) {
+            self.locations = locations
+        } else {
+            self.locations.append(contentsOf: locations)
+        }
+        isLoadingPageList = false
+        self.tableView.reloadData()
     }
 
     
@@ -87,6 +98,14 @@ extension LocationsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return LocationTableViewCell.rowHeight
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (((scrollView.contentOffset.y + scrollView.frame.size.height) > scrollView.contentSize.height ) &&
+                locations.count > 0 && !isLoadingPageList && !viewModel.isLastPage()){
+            isLoadingPageList = true
+            viewModel.loadNextPage()
+        }
     }
     
     private func viewModelForCellAt(indexPath: IndexPath) -> LocationTableViewCellViewModel {
