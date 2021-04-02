@@ -1,2 +1,2 @@
-# KMP_TEST
+# Rick And Morty Kotlin Multiplatform App
 
