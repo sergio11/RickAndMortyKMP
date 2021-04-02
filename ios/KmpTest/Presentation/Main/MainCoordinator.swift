@@ -61,10 +61,10 @@ final class MainCoordinator: Coordinator {
         
     }
     
-    private func buildEpisodesViewController() -> EpisodesTableViewController {
+    private func buildEpisodesViewController() -> EpisodesViewController {
         let getEpisodesInteract = koin.get(objCClass: GetEpisodesInteract.self, qualifier: nil) as! GetEpisodesInteract
         let episodesViewModel = EpisodesViewModel(getEpisodesInteract: getEpisodesInteract)
-        let episodesTableVC = EpisodesTableViewController()
+        let episodesTableVC = EpisodesViewController()
         episodesTableVC.viewModel = episodesViewModel
         episodesTableVC.coordinator = self
         let item = UITabBarItem()
@@ -74,4 +74,5 @@ final class MainCoordinator: Coordinator {
         return episodesTableVC
     }
     
+
 }
