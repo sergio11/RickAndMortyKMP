@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		3D5A22E3261652B900B62604 /* EpisodesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A22E1261652B900B62604 /* EpisodesTableViewController.swift */; };
 		3D5A22E4261652B900B62604 /* EpisodesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D5A22E2261652B900B62604 /* EpisodesTableViewController.xib */; };
-		3D5A22EA261652DB00B62604 /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A22E8261652DB00B62604 /* LocationsTableViewController.swift */; };
-		3D5A22EB261652DB00B62604 /* LocationsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D5A22E9261652DB00B62604 /* LocationsTableViewController.xib */; };
+		3D5D29422617853900D40EBC /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D29402617853900D40EBC /* LocationTableViewCell.swift */; };
+		3D5D29432617853900D40EBC /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D5D29412617853900D40EBC /* LocationTableViewCell.xib */; };
+		3D5D29482617854F00D40EBC /* LocationTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D29472617854F00D40EBC /* LocationTableViewCellViewModel.swift */; };
+		3D5D295D2617883100D40EBC /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D295B2617883100D40EBC /* LocationsViewController.swift */; };
+		3D5D295E2617883100D40EBC /* LocationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D5D295C2617883100D40EBC /* LocationsViewController.xib */; };
 		3D7346992613A48000FCEC57 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7346982613A48000FCEC57 /* Coordinator.swift */; };
 		3D7346A82613A5EA00FCEC57 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7346A72613A5EA00FCEC57 /* MainCoordinator.swift */; };
 		3D8081802617431400EE8F38 /* CharacterTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D80817F2617431400EE8F38 /* CharacterTableViewCellViewModel.swift */; };
@@ -50,8 +53,11 @@
 		2A1ED6A4A2A53F5F75C58E5F /* Pods-KaMPKitiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaMPKitiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-KaMPKitiOS/Pods-KaMPKitiOS.release.xcconfig"; sourceTree = "<group>"; };
 		3D5A22E1261652B900B62604 /* EpisodesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesTableViewController.swift; sourceTree = "<group>"; };
 		3D5A22E2261652B900B62604 /* EpisodesTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodesTableViewController.xib; sourceTree = "<group>"; };
-		3D5A22E8261652DB00B62604 /* LocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
-		3D5A22E9261652DB00B62604 /* LocationsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationsTableViewController.xib; sourceTree = "<group>"; };
+		3D5D29402617853900D40EBC /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		3D5D29412617853900D40EBC /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
+		3D5D29472617854F00D40EBC /* LocationTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		3D5D295B2617883100D40EBC /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		3D5D295C2617883100D40EBC /* LocationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationsViewController.xib; sourceTree = "<group>"; };
 		3D7346982613A48000FCEC57 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		3D7346A72613A5EA00FCEC57 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		3D80817F2617431400EE8F38 /* CharacterTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCellViewModel.swift; sourceTree = "<group>"; };
@@ -125,10 +131,21 @@
 		3D5A22D9261651B200B62604 /* Locations */ = {
 			isa = PBXGroup;
 			children = (
-				3D5A22E8261652DB00B62604 /* LocationsTableViewController.swift */,
-				3D5A22E9261652DB00B62604 /* LocationsTableViewController.xib */,
+				3D5D293F2617852100D40EBC /* Cell */,
+				3D5D295B2617883100D40EBC /* LocationsViewController.swift */,
+				3D5D295C2617883100D40EBC /* LocationsViewController.xib */,
 			);
 			path = Locations;
+			sourceTree = "<group>";
+		};
+		3D5D293F2617852100D40EBC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3D5D29402617853900D40EBC /* LocationTableViewCell.swift */,
+				3D5D29412617853900D40EBC /* LocationTableViewCell.xib */,
+				3D5D29472617854F00D40EBC /* LocationTableViewCellViewModel.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		3D7346962613A45100FCEC57 /* Common */ = {
@@ -380,8 +397,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D5D295E2617883100D40EBC /* LocationsViewController.xib in Resources */,
 				3D80818F261746FB00EE8F38 /* CharactersViewController.xib in Resources */,
-				3D5A22EB261652DB00B62604 /* LocationsTableViewController.xib in Resources */,
+				3D5D29432617853900D40EBC /* LocationTableViewCell.xib in Resources */,
 				F1465F0D23AA94BF0055F7C3 /* LaunchScreen.storyboard in Resources */,
 				3D80819926174B8800EE8F38 /* CharacterTableViewCell.xib in Resources */,
 				F1465F0A23AA94BF0055F7C3 /* Assets.xcassets in Resources */,
@@ -453,15 +471,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D8081802617431400EE8F38 /* CharacterTableViewCellViewModel.swift in Sources */,
-				3D5A22EA261652DB00B62604 /* LocationsTableViewController.swift in Sources */,
 				3D5A22E3261652B900B62604 /* EpisodesTableViewController.swift in Sources */,
 				3D7346992613A48000FCEC57 /* Coordinator.swift in Sources */,
 				3DF1DAC62612544D00221E99 /* koin.swift in Sources */,
 				F1465F0523AA94BF0055F7C3 /* ViewController.swift in Sources */,
 				3D7346A82613A5EA00FCEC57 /* MainCoordinator.swift in Sources */,
+				3D5D29482617854F00D40EBC /* LocationTableViewCellViewModel.swift in Sources */,
 				3D80819826174B8800EE8F38 /* CharacterTableViewCell.swift in Sources */,
+				3D5D29422617853900D40EBC /* LocationTableViewCell.swift in Sources */,
 				3D80818E261746FB00EE8F38 /* CharactersViewController.swift in Sources */,
 				F1465F0123AA94BF0055F7C3 /* AppDelegate.swift in Sources */,
+				3D5D295D2617883100D40EBC /* LocationsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

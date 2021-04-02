@@ -47,10 +47,10 @@ final class MainCoordinator: Coordinator {
         return charactersTableVC
     }
     
-    private func buildLocationsViewController() -> LocationsTableViewController {
+    private func buildLocationsViewController() -> LocationsViewController {
         let getLocationsInteract = koin.get(objCClass: GetLocationsInteract.self, qualifier: nil) as! GetLocationsInteract
         let locationsViewModel = LocationsViewModel(getLocationsInteract: getLocationsInteract)
-        let locationsTableVC = LocationsTableViewController()
+        let locationsTableVC = LocationsViewController()
         locationsTableVC.viewModel = locationsViewModel
         locationsTableVC.coordinator = self
         let item = UITabBarItem()
@@ -73,6 +73,5 @@ final class MainCoordinator: Coordinator {
         episodesTableVC.tabBarItem = item
         return episodesTableVC
     }
-
     
 }
