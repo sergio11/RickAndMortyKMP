@@ -23,3 +23,8 @@ An App architecture example based on Kotlin Multiplatform Mobile
  <img width="250px" align="left" src="./screenshots/app_ios_2.png" />
  <img width="250px" align="left" src="./screenshots/app_ios_3.png" />
  <img width="250px" src="./screenshots/app_ios_4.png" />
+ 
+ 
+ ## Visitors Count
+
+<img width="auto" src="https://profile-counter.glitch.me/RickAndMortyKMP/count.svg" />
